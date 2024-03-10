@@ -1,4 +1,7 @@
 package org.money.depensemicroservice.repositories;
 
-public interface CategorieRepository extends org.springframework.data.jpa.repository.JpaRepository<org.money.depensemicroservice.entities.Categorie, java.lang.Long> {
+import org.money.depensemicroservice.entities.Categorie;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CategorieRepository extends JpaRepository<Categorie, Long> {
 }

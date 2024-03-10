@@ -1,4 +1,13 @@
-package org.money.notificationmicroservice.services;
+package org.money.notificationmicroservice;
 
-public class NotificationService {
+import java.util.List;
+
+public interface NotificationService {
+    public List<NotificationDTO> obtenirNotifications();
+    NotificationDTO obtenirNotificationParId(Long id);
+    NotificationDTO envoyerNotification(NotificationDTO notificationDTO);
+    NotificationDTO modifierNotification(Long id, NotificationDTO notificationDTO);
+    void supprimerNotification(Long id);
+    void marquerCommeLu(Long id);
+    List<NotificationDTO> obtenirNotificationsNonLues();
 }

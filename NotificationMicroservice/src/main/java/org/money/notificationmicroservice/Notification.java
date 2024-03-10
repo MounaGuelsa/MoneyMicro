@@ -1,4 +1,4 @@
-package org.money.notificationmicroservice.entities;
+package org.money.notificationmicroservice;
 
 
 
@@ -26,5 +26,5 @@ public class Notification {
     private String contenuNotif;
     private boolean lu= false;
     private LocalDateTime dateCreationNotif;
-    private Long destinataireId;
+    private Long utilisateurId;
 }

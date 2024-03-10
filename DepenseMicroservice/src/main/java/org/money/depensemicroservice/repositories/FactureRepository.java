@@ -1,4 +1,7 @@
 package org.money.depensemicroservice.repositories;
 
-public interface FactureRepository extends org.springframework.data.jpa.repository.JpaRepository<org.money.depensemicroservice.entities.Facture, java.lang.String> {
+import org.money.depensemicroservice.entities.Facture;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface FactureRepository extends JpaRepository<Facture, Long> {
 }

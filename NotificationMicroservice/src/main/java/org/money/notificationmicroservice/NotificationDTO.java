@@ -1,6 +1,4 @@
-package org.money.notificationmicroservice.dtos;
-
-
+package org.money.notificationmicroservice;
 
 import java.time.LocalDateTime;
 
@@ -11,7 +9,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,9 +16,15 @@ import lombok.NoArgsConstructor;
 public class NotificationDTO {
     private Long idNotif;
 
-
+    @NotBlank(message = "Contenu de notification ne peut pas être vide")
     private String contenuNotif;
-    private boolean Lu;
+
+    private boolean lu;
+
+    @NotNull(message = "Date de création de notification ne peut pas être vide")
     private LocalDateTime dateCreationNotif;
-    private Long  destinataireId;
+
+    @NotNull(message = "L'identifiant de l'utilisateur ne peut pas être vide")
+    private Long utilisateurId;
+
 }
