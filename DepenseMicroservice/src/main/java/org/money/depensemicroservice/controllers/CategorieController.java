@@ -5,9 +5,11 @@ import org.money.depensemicroservice.services.CategorieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/categories")
@@ -19,7 +21,6 @@ public class CategorieController {
     public CategorieController(CategorieService categorieService) {
         this.categorieService = categorieService;
     }
-
     @GetMapping
     public ResponseEntity<List<CategorieDto>> obtenirCategories() {
         List<CategorieDto> categories = categorieService.obtenirCategories();

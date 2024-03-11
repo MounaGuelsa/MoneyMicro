@@ -24,7 +24,7 @@ public class NotificationDTO {
     @NotNull(message = "Date de création de notification ne peut pas être vide")
     private LocalDateTime dateCreationNotif;
 
-    @NotNull(message = "L'identifiant de l'utilisateur ne peut pas être vide")
+    //@NotNull(message = "L'identifiant de l'utilisateur ne peut pas être vide")
     private Long utilisateurId;
 
 }

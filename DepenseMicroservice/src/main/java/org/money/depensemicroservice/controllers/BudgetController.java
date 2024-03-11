@@ -5,12 +5,13 @@ import org.money.depensemicroservice.services.BudgetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/budgets")
+@RequestMapping("/budgets")
 public class BudgetController {
 
     private final BudgetService budgetService;
@@ -22,39 +23,59 @@ public class BudgetController {
 
     @GetMapping
     public ResponseEntity<List<BudgetDto>> obtenirBudgets() {
-        List<BudgetDto> budgets = budgetService.obtenirBudgets();
-        return new ResponseEntity<>(budgets, HttpStatus.OK);
+        try {
+            List<BudgetDto> budgets = budgetService.obtenirBudgets();
+            return new ResponseEntity<>(budgets, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<BudgetDto> obtenirBudgetParId(@PathVariable Long id) {
-        BudgetDto budget = budgetService.obtenirBudgetParId(id);
-        if (budget != null) {
-            return new ResponseEntity<>(budget, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        try {
+            BudgetDto budget = budgetService.obtenirBudgetParId(id);
+            if (budget != null) {
+                return new ResponseEntity<>(budget, HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @PostMapping("/add")
     public ResponseEntity<BudgetDto> ajouterBudget(@RequestBody BudgetDto budgetDto) {
-        BudgetDto budget = budgetService.ajouterBudget(budgetDto);
-        return new ResponseEntity<>(budget, HttpStatus.CREATED);
+        try {
+            BudgetDto budget = budgetService.ajouterBudget(budgetDto);
+            return new ResponseEntity<>(budget, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @PutMapping("/update/{id}")
     public ResponseEntity<BudgetDto> modifierBudget(@PathVariable Long id, @RequestBody BudgetDto budgetDto) {
-        BudgetDto budget = budgetService.modifierBudget(id, budgetDto);
-        if (budget != null) {
-            return new ResponseEntity<>(budget, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        try {
+            BudgetDto budget = budgetService.modifierBudget(id, budgetDto);
+            if (budget != null) {
+                return new ResponseEntity<>(budget, HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> supprimerBudget(@PathVariable Long id) {
-        budgetService.supprimmerBudget(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        try {
+            budgetService.supprimmerBudget(id);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

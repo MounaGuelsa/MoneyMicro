@@ -3,6 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/DepenseMicroservice/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/NotificationMicroservice/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/NotificationMicroservice/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ProjetMicroservice/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/RapportMicroservice/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/UtilisateurMicroservice/src/main/java" charset="UTF-8" />

@@ -5,6 +5,8 @@ g	java:S1125"FDefine and throw a dedicated exception instead of using a generi
 g	java:S112H"FDefine and throw a dedicated exception instead of using a generic one.(õ£†˜úÿÿÿÿ8ˆØå×à1
 g	java:S112R"FDefine and throw a dedicated exception instead of using a generic one.(ÄàÃÑşÿÿÿÿ8ˆØå×à1
 g	java:S112`"FDefine and throw a dedicated exception instead of using a generic one.(¡Õººşÿÿÿÿ8ˆØå×à1
+o
+java:S6204"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8•µûÆâ1
 u
 java:S2139"XEither log this exception and handle it, or rethrow it with some contextual information.(”ı¾8¦Øå×à1
 u
@@ -17,3 +19,7 @@ u
 java:S2139P"XEither log this exception and handle it, or rethrow it with some contextual information.(”ı¾8®Øå×à1
 u
 java:S2139^"XEither log this exception and handle it, or rethrow it with some contextual information.(”ı¾8¯Øå×à1
+o
+java:S6204j"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8µµûÆâ1
+M
+java:S1168m"+Return an empty collection instead of null.(Ášù¤ûÿÿÿÿ8¾µûÆâ1

@@ -20,51 +20,79 @@ public class NotificationController {
 
     @GetMapping
     public ResponseEntity<List<NotificationDTO>> obtenirNotifications() {
-        List<NotificationDTO> notifications = notificationService.obtenirNotifications();
-        return new ResponseEntity<>(notifications, HttpStatus.OK);
+        try {
+            List<NotificationDTO> notifications = notificationService.obtenirNotifications();
+            return new ResponseEntity<>(notifications, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<NotificationDTO> obtenirNotificationParId(@PathVariable Long id) {
-        NotificationDTO notification = notificationService.obtenirNotificationParId(id);
-        if (notification != null) {
-            return new ResponseEntity<>(notification, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        try {
+            NotificationDTO notification = notificationService.obtenirNotificationParId(id);
+            if (notification != null) {
+                return new ResponseEntity<>(notification, HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @PostMapping
     public ResponseEntity<NotificationDTO> envoyerNotification(@RequestBody NotificationDTO notificationDTO) {
-        NotificationDTO createdNotification = notificationService.envoyerNotification(notificationDTO);
-        return new ResponseEntity<>(createdNotification, HttpStatus.CREATED);
+        try {
+            NotificationDTO createdNotification = notificationService.envoyerNotification(notificationDTO);
+            return new ResponseEntity<>(createdNotification, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<NotificationDTO> modifierNotification(@PathVariable Long id, @RequestBody NotificationDTO notificationDTO) {
-        NotificationDTO modifiedNotification = notificationService.modifierNotification(id, notificationDTO);
-        if (modifiedNotification != null) {
-            return new ResponseEntity<>(modifiedNotification, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        try {
+            NotificationDTO modifiedNotification = notificationService.modifierNotification(id, notificationDTO);
+            if (modifiedNotification != null) {
+                return new ResponseEntity<>(modifiedNotification, HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> supprimerNotification(@PathVariable Long id) {
-        notificationService.supprimerNotification(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        try {
+            notificationService.supprimerNotification(id);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @PutMapping("/{id}/marquerCommelu")
     public ResponseEntity<Void> marquerCommeLu(@PathVariable Long id) {
-        notificationService.marquerCommeLu(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        try {
+            notificationService.marquerCommeLu(id);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @GetMapping("/nonLues")
     public ResponseEntity<List<NotificationDTO>> obtenirNotificationsNonLues() {
-        List<NotificationDTO> nonLues = notificationService.obtenirNotificationsNonLues();
-        return new ResponseEntity<>(nonLues, HttpStatus.OK);
+        try {
+            List<NotificationDTO> nonLues = notificationService.obtenirNotificationsNonLues();
+            return new ResponseEntity<>(nonLues, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

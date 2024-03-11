@@ -67,7 +67,7 @@ public class DepenseServiceImp implements DepenseService {
             Optional<Depense> depenseOptional = depenseRepository.findById(id);
             if (depenseOptional.isPresent()) {
                 Depense depense = depenseOptional.get();
-                // Modifier les attributs de la dépense en fonction des données dans depenseDTO
+
                 depense = depenseRepository.save(depense);
                 return depenseMapper.toDTO(depense);
             } else {
