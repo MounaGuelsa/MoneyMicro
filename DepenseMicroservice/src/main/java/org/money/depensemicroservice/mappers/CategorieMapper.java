@@ -14,7 +14,9 @@ public interface CategorieMapper extends  GlobalMapper<CategorieDto, Categorie> 
     CategorieMapper INSTANCE = Mappers.getMapper(CategorieMapper.class);
 
     @Mapping(target = "budget",source ="budget")
+
     CategorieDto toDTO(Categorie categorie);
     @Mapping(target = "budget",source ="budget")
+
     Categorie toEntity(Categorie categorieDto);
 }

@@ -28,7 +28,6 @@ public class Depense {
 
     private String description;
 
-    private String lieu;
 
     private String notes;
 

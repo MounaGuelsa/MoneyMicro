@@ -25,6 +25,9 @@ public class DepenseDto implements Serializable {
     @NotNull
     Categorie categorie;
     FactureDto facture;
+    String notes;
+    String description;
+
     @NotNull
     MoyennePaiement moyennePaiement;
     @NotNull

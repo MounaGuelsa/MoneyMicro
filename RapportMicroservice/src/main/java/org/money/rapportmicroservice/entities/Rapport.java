@@ -23,6 +23,6 @@ public class Rapport {
     private LocalDate dateRapport;
     private int mois;
     private int annee;
-    private List<Depense> listeDepenses;
+    //private List<Depense> listeDepenses;
     private double totalDepenses;
 }

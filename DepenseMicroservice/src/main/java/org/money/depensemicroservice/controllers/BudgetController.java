@@ -5,7 +5,6 @@ import org.money.depensemicroservice.services.BudgetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,7 +21,8 @@ public class BudgetController {
     }
 
     @GetMapping
-    public ResponseEntity<List<BudgetDto>> obtenirBudgets() {
+    public ResponseEntity<List<BudgetDto>> obtenirBudgets()
+    {
         try {
             List<BudgetDto> budgets = budgetService.obtenirBudgets();
             return new ResponseEntity<>(budgets, HttpStatus.OK);
@@ -45,7 +45,7 @@ public class BudgetController {
         }
     }
 
-    @PostMapping("/add")
+    @PostMapping
     public ResponseEntity<BudgetDto> ajouterBudget(@RequestBody BudgetDto budgetDto) {
         try {
             BudgetDto budget = budgetService.ajouterBudget(budgetDto);
@@ -55,7 +55,7 @@ public class BudgetController {
         }
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<BudgetDto> modifierBudget(@PathVariable Long id, @RequestBody BudgetDto budgetDto) {
         try {
             BudgetDto budget = budgetService.modifierBudget(id, budgetDto);
@@ -69,7 +69,7 @@ public class BudgetController {
         }
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> supprimerBudget(@PathVariable Long id) {
         try {
             budgetService.supprimmerBudget(id);

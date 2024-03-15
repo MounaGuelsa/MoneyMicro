@@ -10,6 +10,8 @@
         <option value="$PROJECT_DIR$/ProjetMicroservice/pom.xml" />
         <option value="$PROJECT_DIR$/RapportMicroservice/pom.xml" />
         <option value="$PROJECT_DIR$/UtilisateurMicroservice/pom.xml" />
+        <option value="$PROJECT_DIR$/DIiscoveryService/pom.xml" />
+        <option value="$PROJECT_DIR$/ConfigService/pom.xml" />
       </list>
     </option>
   </component>

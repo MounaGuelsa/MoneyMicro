@@ -68,7 +68,6 @@ public class BudgetServiceImp implements BudgetService {
             Optional<Budget> budgetOptional = budgetRepository.findById(id);
             if (budgetOptional.isPresent()) {
                 Budget budget = budgetOptional.get();
-                budget.setNomBudget(budgetDTO.getNomBudget());
                 budget.setMois(budgetDTO.getMois());
                 budget.setMontant(budgetDTO.getMontant());
                 //budget.setCategorie(budgetDTO.getCategorie()); // Assurez-vous d'ajouter cette fonctionnalité si nécessaire

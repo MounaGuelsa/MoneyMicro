@@ -67,6 +67,10 @@ public class DepenseServiceImp implements DepenseService {
             Optional<Depense> depenseOptional = depenseRepository.findById(id);
             if (depenseOptional.isPresent()) {
                 Depense depense = depenseOptional.get();
+                depense.setDate(depenseDTO.getDate());
+                depense.setMontant(depenseDTO.getMontant());
+                depense.setNotes(depenseDTO.getNotes());
+                depense.setDescription(depenseDTO.getDescription());
 
                 depense = depenseRepository.save(depense);
                 return depenseMapper.toDTO(depense);

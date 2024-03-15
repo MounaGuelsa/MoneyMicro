@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 import org.money.depensemicroservice.entities.Depense;
 
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -20,15 +22,8 @@ public class Projet {
     private Long idProjet;
 
     private String nomProjet;
-    @ManyToMany
-    @JoinTable(
-            name = "projet_depense",
-            joinColumns = @JoinColumn(name = "idProjet"),
-            inverseJoinColumns = @JoinColumn(name = "idDepense")
-    )
-
-    private Set<Depense> listeDepenses = new HashSet<>();
-
-
-
+//    private List<Depense> depenseList ;
 }
+
+
+

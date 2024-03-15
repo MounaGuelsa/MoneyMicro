@@ -1,5 +1,6 @@
 package org.money.depensemicroservice.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,6 +15,7 @@ public class Categorie{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCategorie;
     private String nom;
-    @OneToOne(mappedBy = "categorie",cascade = CascadeType.ALL)
+    @JsonIgnore
+    @OneToOne
     private Budget budget;
 }

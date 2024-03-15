@@ -13,8 +13,8 @@ import org.springframework.stereotype.Component;
 public interface BudgetMapper extends GlobalMapper<BudgetDto, Budget> {
     BudgetMapper INSTANCE = Mappers.getMapper(BudgetMapper.class);
 
-    @Mapping(target = "categorie",source ="categorie")
+   @Mapping(target = "categorie",source ="categorie")
     BudgetDto toDTO(Budget budget);
-    @Mapping(target = "categorie",source ="categorie")
+  @Mapping(target = "categorie",source ="categorie")
     Budget toEntity(BudgetDto budgetDTO);
 }

@@ -1,10 +1,14 @@
 package org.money.depensemicroservice.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.time.YearMonth;
+import org.mapstruct.Mapping;
+import org.money.depensemicroservice.dtos.BudgetDto;
+
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -14,9 +18,12 @@ public class Budget {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idBudget;
-    private String nomBudget;
-    private YearMonth mois;
+
+    private Date mois;
     private double montant;
-    @OneToOne
+    @JsonIgnore
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idCategorie", referencedColumnName = "idCategorie")
     private Categorie categorie;
+
 }
