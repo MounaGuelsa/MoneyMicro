@@ -22,7 +22,7 @@ public class Projet {
     private Long idProjet;
 
     private String nomProjet;
-//    private List<Depense> depenseList ;
+
 }
 
 

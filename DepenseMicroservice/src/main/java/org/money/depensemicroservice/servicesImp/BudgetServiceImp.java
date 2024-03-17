@@ -1,5 +1,6 @@
 package org.money.depensemicroservice.servicesImp;
 
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.money.depensemicroservice.dtos.BudgetDto;
 import org.money.depensemicroservice.entities.Budget;
@@ -19,6 +20,7 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class BudgetServiceImp implements BudgetService {
+
 
     private final BudgetMapper budgetMapper;
     private final BudgetRepository budgetRepository;

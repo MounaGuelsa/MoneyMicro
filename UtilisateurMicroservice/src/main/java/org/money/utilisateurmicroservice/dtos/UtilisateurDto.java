@@ -1,28 +1,28 @@
 package org.money.utilisateurmicroservice.dtos;
 
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.Value;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.money.utilisateurmicroservice.entities.Role;
-
-import java.io.Serializable;
-
-/**
- * DTO for {@link org.money.utilisateurmicroservice.entities.Utilisateur}
- */
-@Value
-public class UtilisateurDto implements Serializable {
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class UtilisateurDto {
+    private Long id_Utilisateur;
+    @NotBlank
+    private String nom;
+    @NotBlank
+    private String prenom;
     @NotNull
-    Long id_Utilisateur;
+    private String email;
     @NotBlank
-    String nom;
-    @NotBlank
-    String prenom;
-    @Email
-    String email;
-    @NotBlank
-    String password;
+    private String password;
     @NotNull
-    Role role;
-}
+    private Role role;
+
+
+    }

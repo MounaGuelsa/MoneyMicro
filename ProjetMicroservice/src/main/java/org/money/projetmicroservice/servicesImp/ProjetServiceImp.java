@@ -24,10 +24,7 @@ public class ProjetServiceImp implements ProjetService {
     private final ProjetRepository projetRepository;
     private static final Logger LOGGER = LoggerFactory.getLogger(ProjetServiceImp.class);
 
-//    public ProjetServiceImp(ProjetMapper projetMapper, ProjetRepository projetRepository) {
-//        this.projetMapper = projetMapper;
-//        this.projetRepository = projetRepository;
-//    }
+
 
     @Override
     public List<ProjetDto> obtenirProjets() {

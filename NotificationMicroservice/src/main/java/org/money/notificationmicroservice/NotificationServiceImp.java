@@ -55,25 +55,6 @@ public class NotificationServiceImp implements  NotificationService{
     }
 
     @Override
-    public NotificationDTO modifierNotification(Long id, NotificationDTO notificationDTO) {
-        try {
-            Optional<Notification> notificationOptional = notificationRepository.findById(id);
-            if (notificationOptional.isPresent()) {
-                Notification notification = notificationOptional.get();
-                // Modifier les attributs de la notification en fonction des données dans notificationDTO
-                notification = notificationRepository.save(notification);
-                return notificationMapper.toDTO(notification);
-            } else {
-                LOGGER.warn("La notification avec l'ID {} est introuvable.", id);
-                return null;
-            }
-        } catch (Exception e) {
-            LOGGER.error("Erreur lors de la modification de la notification avec l'ID {} : {}", id, e.getMessage());
-            throw new RuntimeException("Erreur lors de la modification de la notification", e);
-        }
-    }
-
-    @Override
     public void supprimerNotification(Long id) {
         try {
             notificationRepository.deleteById(id);

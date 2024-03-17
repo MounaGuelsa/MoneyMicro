@@ -5,10 +5,6 @@ import org.apache.logging.log4j.Logger;
 import org.money.utilisateurmicroservice.dtos.UtilisateurDto;
 import org.money.utilisateurmicroservice.services.UtilisateurService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +15,7 @@ import java.util.List;
 @RequestMapping("/utilisateurs")
 public class UtilisateurController {
 
-    private final UtilisateurService utilisateurService;
+    private   UtilisateurService utilisateurService;
     private static final Logger LOGGER = LogManager.getLogger(UtilisateurController.class);
 
     @Autowired
@@ -28,81 +24,78 @@ public class UtilisateurController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<UtilisateurDto>> getAllUtilisateurs(@RequestParam(defaultValue = "0") int page,
-                                                                   @RequestParam(defaultValue = "10") int size) {
+    public ResponseEntity<List<UtilisateurDto>> obtenirTousLesUtilisateurs() {
         try {
-            Sort sort = Sort.by("nom").ascending(); // Changer le champ utilisé pour trier si nécessaire
-            Pageable pageable = PageRequest.of(page, size, sort);
+            List<UtilisateurDto> utilisateurs = utilisateurService.obtenirUtilisateurs();
 
-            Page<UtilisateurDto> utilisateursPage = utilisateurService.obtenirUtilisateurs(pageable);
-
-            if (!utilisateursPage.isEmpty()) {
-                return new ResponseEntity<>(utilisateursPage, HttpStatus.OK);
+            if (!utilisateurs.isEmpty()) {
+                return new ResponseEntity<>(utilisateurs, HttpStatus.OK);
             } else {
-                LOGGER.warn("No utilisateurs found");
+                LOGGER.warn("Aucun utilisateur trouvé");
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
         } catch (Exception e) {
-            LOGGER.error("An error occurred while fetching all utilisateurs", e);
+            LOGGER.error("Une erreur s'est produite lors de la récupération de tous les utilisateurs", e);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
+
     @GetMapping("/{id}")
-    public ResponseEntity<UtilisateurDto> getUtilisateurById(@PathVariable Long id) {
+    public ResponseEntity<UtilisateurDto> obtenirUtilisateurParId(@PathVariable Long id) {
         try {
             UtilisateurDto utilisateurDto = utilisateurService.obtenirUtilisateurParId(id);
             if (utilisateurDto != null) {
                 return new ResponseEntity<>(utilisateurDto, HttpStatus.OK);
             } else {
-                LOGGER.warn("Utilisateur with ID {} not found", id);
+                LOGGER.warn("Utilisateur avec l'identifiant {} non trouvé", id);
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
         } catch (Exception e) {
-            LOGGER.error("An error occurred while fetching utilisateur with ID " + id, e);
+            LOGGER.error("Une erreur s'est produite lors de la récupération de l'utilisateur avec l'identifiant " + id, e);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @PostMapping
-    public ResponseEntity<UtilisateurDto> createUtilisateur(@RequestBody UtilisateurDto utilisateurDto) {
+    public ResponseEntity<UtilisateurDto> creerUtilisateur(@RequestBody UtilisateurDto utilisateurDto) {
         try {
-            UtilisateurDto createdUtilisateur = utilisateurService.ajouterUtilisateur(utilisateurDto);
-            if (createdUtilisateur != null) {
-                return new ResponseEntity<>(createdUtilisateur, HttpStatus.CREATED);
+            UtilisateurDto utilisateurCree = utilisateurService.ajouterUtilisateur(utilisateurDto);
+            if (utilisateurCree != null) {
+                return new ResponseEntity<>(utilisateurCree, HttpStatus.CREATED);
             } else {
-                LOGGER.error("Failed to create utilisateur");
+                LOGGER.error("Impossible de créer l'utilisateur");
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
         } catch (Exception e) {
-            LOGGER.error("An error occurred while creating the utilisateur", e);
+            LOGGER.error("Une erreur s'est produite lors de la création de l'utilisateur", e);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<UtilisateurDto> updateUtilisateur(@PathVariable Long id, @RequestBody UtilisateurDto utilisateurDto) {
+    public ResponseEntity<UtilisateurDto> mettreAJourUtilisateur(@PathVariable Long id, @RequestBody UtilisateurDto utilisateurDto) {
         try {
-            UtilisateurDto updatedUtilisateur = utilisateurService.modifierUtilisateur(id, utilisateurDto);
-            if (updatedUtilisateur != null) {
-                return new ResponseEntity<>(updatedUtilisateur, HttpStatus.OK);
+            UtilisateurDto utilisateurMisAJour = utilisateurService.modifierUtilisateur(id, utilisateurDto);
+            if (utilisateurMisAJour != null) {
+                return new ResponseEntity<>(utilisateurMisAJour, HttpStatus.OK);
             } else {
-                LOGGER.warn("Utilisateur with ID {} not found", id);
+                LOGGER.warn("Utilisateur avec l'identifiant {} non trouvé", id);
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
         } catch (Exception e) {
-            LOGGER.error("An error occurred while updating utilisateur with ID " + id, e);
+            LOGGER.error("Une erreur s'est produite lors de la mise à jour de l'utilisateur avec l'identifiant " + id, e);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteUtilisateurById(@PathVariable Long id) {
+    public ResponseEntity<Void> supprimerUtilisateurParId(@PathVariable Long id) {
         try {
             utilisateurService.supprimerUtilisateur(id);
             return ResponseEntity.noContent().build();
         } catch (Exception e) {
-            LOGGER.error("An error occurred while deleting the utilisateur with ID " + id, e);
+            LOGGER.error("Une erreur s'est produite lors de la suppression de l'utilisateur avec l'identifiant " + id, e);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

@@ -52,19 +52,7 @@ public class NotificationController {
         }
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<NotificationDTO> modifierNotification(@PathVariable Long id, @RequestBody NotificationDTO notificationDTO) {
-        try {
-            NotificationDTO modifiedNotification = notificationService.modifierNotification(id, notificationDTO);
-            if (modifiedNotification != null) {
-                return new ResponseEntity<>(modifiedNotification, HttpStatus.OK);
-            } else {
-                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-            }
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> supprimerNotification(@PathVariable Long id) {

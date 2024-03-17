@@ -7,7 +7,7 @@ import org.money.utilisateurmicroservice.entities.Utilisateur;
 
 @Mapper(componentModel="spring")
 public interface UtilisateurMapper {
-    UtilisateurMapper INSTANCE = Mappers.getMapper(UtilisateurMapper.class);
-    UtilisateurDto toDTO(Utilisateur e);
-    Utilisateur toEntity(UtilisateurDto o);
+    UtilisateurDto INSTANCE = Mappers.getMapper(UtilisateurDto.class);
+    UtilisateurDto toDTO(Utilisateur utilisateur);
+    Utilisateur toEntity(UtilisateurDto utilisateurDto);
 }
