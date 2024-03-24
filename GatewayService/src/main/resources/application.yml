@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: GatewayService
+  cloud:
+    gateway:
+      routes:
+        - id: depense
+          uri: lb://DEPENSE
+          predicates:
+            - Path=/depenses/**
+            - Path=/categories/**
+            - Path=/factures/**
+            - Path=/budgets/**
+        - id: user
+          uri: lb://UTILISATEUR
+          predicates:
+            - Path=/utilisateurs/**
+        - id: notification
+          uri: lb://NOTIFICATION
+          predicates:
+            - Path=/notifications/**
+        - id: projet
+          uri: lb://PROJET
+          predicates:
+            - Path=/projets/**
+server:
+  port: 3333
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    fetch-registry: true
+    register-with-eureka: true

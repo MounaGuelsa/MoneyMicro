@@ -1,0 +1,7 @@
+
+‰
+java:S1192 "lDefine a constant instead of duplicating this literal "La catÃ©gorie avec l'ID {} est introuvable." 3 times.(£á©’8öË¬åä1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Øìõ±øÿÿÿÿ8É»ğää1
+X	java:S125&"<This block of commented-out lines of code should be removed.(Áø˜Õ8ß†¬åä1
+o
+java:S62040"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8Ì¬åä1

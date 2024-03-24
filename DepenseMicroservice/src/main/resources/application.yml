@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: Depense
+  config:
+    import: configserver:http://localhost:3000/
