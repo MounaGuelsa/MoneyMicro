@@ -39,5 +39,4 @@ public class Depense {
     private MoyennePaiement moyennePaiement;
     private Long utilisateurId;
 
-
 }
