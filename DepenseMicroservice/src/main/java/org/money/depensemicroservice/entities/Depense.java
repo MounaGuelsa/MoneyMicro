@@ -25,10 +25,7 @@ public class Depense {
     private double montant;
 
     private LocalDate date;
-
     private String description;
-
-
     private String notes;
 
     @ManyToOne

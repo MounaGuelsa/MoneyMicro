@@ -20,8 +20,10 @@ public class Projet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idProjet;
-
     private String nomProjet;
+    private double total;
+    @ElementCollection
+    private HashSet<Long> depenses;
 
 }
 

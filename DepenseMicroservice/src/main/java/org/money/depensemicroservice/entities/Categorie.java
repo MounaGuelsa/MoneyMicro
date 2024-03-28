@@ -15,7 +15,8 @@ public class Categorie{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCategorie;
     private String nom;
-    @JsonIgnore
-    @OneToOne
-    private Budget budget;
-}
+//    @JsonIgnore
+//    @OneToOne
+    private double budget;
+    private String icone;
+ }

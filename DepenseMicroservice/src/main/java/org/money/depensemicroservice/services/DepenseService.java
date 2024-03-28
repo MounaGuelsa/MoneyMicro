@@ -5,6 +5,7 @@ import org.money.depensemicroservice.dtos.DepenseDto;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 public interface DepenseService {
     List<DepenseDto> obtenirDepenses();
@@ -21,4 +22,6 @@ public interface DepenseService {
 
 
     List<DepenseDto> obtenirDepensesEntreDates(LocalDate debut, LocalDate fin);
+    Map<String, Double> totalDepensesParMois();
+
 }

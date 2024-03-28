@@ -7,13 +7,17 @@ import org.money.depensemicroservice.exceptions.CustomException;
 import org.money.depensemicroservice.mappers.DepenseMapper;
 import org.money.depensemicroservice.repositories.DepenseRepository;
 import org.money.depensemicroservice.services.DepenseService;
+import org.money.feignclient.utilisateur.UtilisateurClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -23,6 +27,7 @@ public class DepenseServiceImp implements DepenseService {
 
     private final DepenseMapper depenseMapper;
     private final DepenseRepository depenseRepository;
+    private final UtilisateurClient utilisateurClient;
     private static final Logger LOGGER = LoggerFactory.getLogger(DepenseServiceImp.class);
 
     @Override
@@ -117,6 +122,26 @@ public class DepenseServiceImp implements DepenseService {
         } catch (Exception e) {
             LOGGER.error("Erreur lors de la récupération des dépenses entre les dates {} et {} : {}", debut, fin, e.getMessage());
             throw new CustomException("Erreur lors de la récupération des dépenses entre les dates", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    @Override
+    public Map<String, Double> totalDepensesParMois() {
+        try {
+            List<Depense> depenses = depenseRepository.findAll();
+            Map<String, Double> totalParMois = new HashMap<>();
+
+            // Parcourez les dépenses et accumulez les totaux par mois
+            for (Depense depense : depenses) {
+                String mois = depense.getDate().format(DateTimeFormatter.ofPattern("yyyy-MM"));
+                double montant = depense.getMontant();
+
+                totalParMois.put(mois, totalParMois.getOrDefault(mois, 0.0) + montant);
+            }
+
+            return totalParMois;
+        } catch (Exception e) {
+            LOGGER.error("Erreur lors du calcul des dépenses par mois : {}", e.getMessage());
+            throw new CustomException("Erreur lors du calcul des dépenses par mois", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

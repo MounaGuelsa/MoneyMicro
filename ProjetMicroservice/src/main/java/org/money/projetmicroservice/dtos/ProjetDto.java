@@ -6,6 +6,7 @@ import lombok.Value;
 import org.money.depensemicroservice.dtos.DepenseDto;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -18,4 +19,6 @@ public class ProjetDto implements Serializable {
     Long idProjet;
     @NotNull
     String nomProjet;
+    private HashSet<Long> depenses;
+
 }

@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import org.money.depensemicroservice.entities.Depense;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 @Data
 @AllArgsConstructor
@@ -20,9 +21,8 @@ public class Rapport {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idRapport;
-    private LocalDate dateRapport;
-    private int mois;
-    private int annee;
-    //private List<Depense> listeDepenses;
-    private double totalDepenses;
+    //todo check if the type is correct jj/mm/aaaa
+    private Date moisAnnee;
+
+
 }

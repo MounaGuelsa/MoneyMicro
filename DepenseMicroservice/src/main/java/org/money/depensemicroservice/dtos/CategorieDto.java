@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Value;
-import org.money.depensemicroservice.entities.Budget;
+//import org.money.depensemicroservice.entities.Budget;
 
 import java.io.Serializable;
 
@@ -17,7 +17,7 @@ public class CategorieDto implements Serializable {
     Long idCategorie;
     @NotBlank
     String nom;
-    @NotNull
-    @JsonIgnoreProperties(value = {"categorie"})
-    Budget budget;
+//    @NotNull
+//    @JsonIgnoreProperties(value = {"categorie"})
+//    Budget budget;
 }

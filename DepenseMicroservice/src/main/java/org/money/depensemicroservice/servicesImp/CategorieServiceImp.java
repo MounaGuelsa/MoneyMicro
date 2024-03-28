@@ -34,8 +34,7 @@ public class CategorieServiceImp implements CategorieService {
                 });
 
         categorie.setNom(categorieDTO.getNom());
-        // Uncomment the following line if you want to update the budget
-        // categorie.setBudget(categorieDTO.getBudget());
+
 
         return categorieMapper.toDTO(categorieRepository.save(categorie));
     }
