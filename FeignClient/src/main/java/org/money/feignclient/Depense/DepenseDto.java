@@ -1,5 +1,4 @@
-package org.money.feignclient.depense;
-
+package org.money.feignclient.Depense;
 
 import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotNull;
@@ -10,7 +9,9 @@ import lombok.Value;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-
+///**
+// * DTO for {@link Depense}
+// */
 @Value
 public class DepenseDto implements Serializable {
     @NotNull
@@ -20,10 +21,11 @@ public class DepenseDto implements Serializable {
     @FutureOrPresent
     LocalDate date;
     @NotNull
-    Long categorie;
-    Long facture;
+//    Categorie categorie;
+//    FactureDto facture;
     String notes;
     String description;
+
     @NotNull
     MoyennePaiement moyennePaiement;
     @NotNull

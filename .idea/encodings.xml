@@ -5,11 +5,13 @@
     <file url="file://$PROJECT_DIR$/DepenseMicroservice/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/DiscoveryServer/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/EurekaServer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/FeignClient/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/GatewayService/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/NotificationMicroservice/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/NotificationMicroservice/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ProjetMicroservice/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/RapportMicroservice/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/RevenueMicroservice/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/UtilisateurMicroservice/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />

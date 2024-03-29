@@ -7,10 +7,7 @@ spring:
         - id: depense
           uri: lb://DEPENSE
           predicates:
-            - Path=/depenses/**
-            - Path=/categories/**
-            - Path=/factures/**
-            - Path=/budgets/**
+            - Path=/depenses/**,/factures/**,/categories/**,/budgets/**
         - id: user
           uri: lb://UTILISATEUR
           predicates:
@@ -23,6 +20,10 @@ spring:
           uri: lb://PROJET
           predicates:
             - Path=/projets/**
+        - id: revenue
+          uri: lb://REVENUE
+          predicates:
+            - Path=/revenues/**
 server:
   port: 3333
 eureka:

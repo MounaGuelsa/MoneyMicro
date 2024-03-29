@@ -1,6 +1,9 @@
 package org.money.projetmicroservice.servicesImp;
 
 import lombok.RequiredArgsConstructor;
+import org.money.depensemicroservice.dtos.DepenseDto;
+import org.money.depensemicroservice.entities.Depense;
+import org.money.feignclient.Depense.DepenseClient;
 import org.money.projetmicroservice.dtos.ProjetDto;
 import org.money.projetmicroservice.entities.Projet;
 import org.money.projetmicroservice.exceptions.CustomException;
@@ -20,8 +23,9 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ProjetServiceImp implements ProjetService {
 
-    private ProjetMapper projetMapper;
+    private final ProjetMapper projetMapper;
     private final ProjetRepository projetRepository;
+    private final DepenseClient depenseClient;
     private static final Logger LOGGER = LoggerFactory.getLogger(ProjetServiceImp.class);
 
 
@@ -99,4 +103,27 @@ public class ProjetServiceImp implements ProjetService {
             throw new CustomException("Erreur lors de la suppression du projet", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    @Override
+    public ProjetDto ajouterProjetAvecDepenses(ProjetDto projetDto, List<DepenseDto> depensesDto) {
+        try {
+            Projet projet = projetMapper.toEntity(projetDto);
+
+            // Convertir les dépenses DTO en entités Depense
+            List<Depense> depenses = depensesDto.stream()
+                    .map(depenseDto -> {
+                        Depense depense = depenseMapper.toEntity(depenseDto);
+                        // Assurez-vous que la dépense créée est associée au projet
+                        projet.ajouterDepense(depense);
+                        return depense;
+                    })
+                    .collect(Collectors.toList());
+
+            projetRepository.save(projet);
+            return projetMapper.toDTO(projet);
+        } catch (Exception e) {
+            LOGGER.error("Une erreur s'est produite lors de l'ajout de ce projet avec des dépenses: {}", e.getMessage());
+            throw new CustomException("Erreur lors de l'ajout du projet avec des dépenses", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }

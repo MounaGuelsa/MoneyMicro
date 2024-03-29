@@ -1,3 +1,7 @@
 
-o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(’·É€
-]	java:S125J"<This block of commented-out lines of code should be removed.(˜ê’®üÿÿÿÿ8Ã‘ ýã1
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(’·É€8˜š²¼è1J$70325965-53b0-4392-87e9-183d48b2a5ee
+ƒ	java:S125N"<This block of commented-out lines of code should be removed.(˜ê’®üÿÿÿÿ8²š²¼è1J$5a2a90e3-8b01-4ef0-927d-ff2fdd346753
+„
+java:S1854p"<Remove this useless assignment to local variable "depenses".(‡ŽØñþÿÿÿÿ8ºš²¼è1J$40702fab-e356-4fda-8a83-23717f497c38
+u
+java:S1481p"-Remove this unused "depenses" local variable.(‡ŽØñþÿÿÿÿ8Áš²¼è1J$1a679e08-d167-4684-a42e-25750b6ae53e

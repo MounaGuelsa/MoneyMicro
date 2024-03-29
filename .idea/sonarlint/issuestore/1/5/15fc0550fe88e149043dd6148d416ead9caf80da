@@ -1,9 +1,4 @@
 
-e
-java:S1128"HRemove this unused import 'com.fasterxml.jackson.annotation.JsonIgnore'.(þ‘‹„8¸´Ê‘ã1
-f
-java:S1128"DRemove this unused import 'jakarta.validation.constraints.NotBlank'.(ÕØ¡Õøÿÿÿÿ8Žñ†úã1
-o
-java:S1128"MRemove this unused import 'org.money.depensemicroservice.entities.Categorie'.(¦ÍªÂûÿÿÿÿ8‚Ú„¥ã1
-R
-java:S1128"0Remove this unused import 'java.time.YearMonth'.(€°’Ñùÿÿÿÿ8¸´Ê‘ã1
+7
+java:S1220""Move this file to a named package.8¡†Ý£è1
+W	java:S125"<This block of commented-out lines of code should be removed.(¹Ìåz8¤†Ý£è1

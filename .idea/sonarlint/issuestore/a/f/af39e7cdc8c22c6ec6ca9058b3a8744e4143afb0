@@ -1,8 +1,11 @@
 
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Øìõ±øÿÿÿÿ8éİµûã1
-o
-java:S6204""RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8‡Şµûã1
-o
-java:S6204g"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8Şµûã1
-o
-java:S6204t"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8‘Şµûã1
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Øìõ±øÿÿÿÿ8ú¬ûç1J$d16cae03-7fc9-45c8-8d05-6e79057d1a13
+ƒ	java:S125
+"<This block of commented-out lines of code should be removed.(ë–³Çşÿÿÿÿ8¹¿Í¶è1J$cd287e2a-7df0-4572-8e33-1563aec0c1dd
+ƒ	java:S125"<This block of commented-out lines of code should be removed.(ó’…íıÿÿÿÿ8ê–´·è1J$f6a465c4-7885-478e-8eb3-b77aa52795af
+•
+java:S6204'"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8Ÿ«Æ½è1J$0fc17818-eb09-47fe-8568-7479b6b42bfd
+•
+java:S6204l"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8¨«Æ½è1J$92a56e80-8b12-4a9a-b347-8d59072a16ed
+•
+java:S6204y"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8¬«Æ½è1J$0e996128-6d05-442f-9f0b-00998f1b2a20

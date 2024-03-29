@@ -23,7 +23,7 @@ public class DepenseDto implements Serializable {
     @FutureOrPresent
     LocalDate date;
     @NotNull
-    Categorie categorie;
+    CategorieDto categorie;
     FactureDto facture;
     String notes;
     String description;

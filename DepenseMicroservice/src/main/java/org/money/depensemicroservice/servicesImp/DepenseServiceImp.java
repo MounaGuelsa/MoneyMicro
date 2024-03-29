@@ -7,7 +7,7 @@ import org.money.depensemicroservice.exceptions.CustomException;
 import org.money.depensemicroservice.mappers.DepenseMapper;
 import org.money.depensemicroservice.repositories.DepenseRepository;
 import org.money.depensemicroservice.services.DepenseService;
-import org.money.feignclient.utilisateur.UtilisateurClient;
+//import org.money.feignclient.utilisateur.UtilisateurClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -27,7 +27,7 @@ public class DepenseServiceImp implements DepenseService {
 
     private final DepenseMapper depenseMapper;
     private final DepenseRepository depenseRepository;
-    private final UtilisateurClient utilisateurClient;
+    //private final UtilisateurClient utilisateurClient;
     private static final Logger LOGGER = LoggerFactory.getLogger(DepenseServiceImp.class);
 
     @Override

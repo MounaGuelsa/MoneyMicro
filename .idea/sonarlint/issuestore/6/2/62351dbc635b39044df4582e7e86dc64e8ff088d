@@ -1,6 +1,4 @@
 
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Øìõ±øÿÿÿÿ8Òİû¢â1
-n
-java:S6204 "RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(÷õëG8ÍÒ®Êâ1
-X
-java:S1128"6Remove this unused import 'lombok.AllArgsConstructor'.(´œ¾öùÿÿÿÿ8¬Æ•§ä1
+7
+java:S1220""Move this file to a named package.8ÍÉß£è1
+]	java:S125"<This block of commented-out lines of code should be removed.(§‚¬Üøÿÿÿÿ8ÑÉß£è1

@@ -17,6 +17,9 @@
         <option value="$PROJECT_DIR$/DiscoveryService/pom.xml" />
         <option value="$PROJECT_DIR$/EurekaServer/pom.xml" />
         <option value="$PROJECT_DIR$/DiscoveryServer/pom.xml" />
+        <option value="$PROJECT_DIR$/Revenue/pom.xml" />
+        <option value="$PROJECT_DIR$/FeignClient/pom.xml" />
+        <option value="$PROJECT_DIR$/RevenueMicroservice/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
