@@ -22,6 +22,6 @@ public interface DepenseService {
 
 
     List<DepenseDto> obtenirDepensesEntreDates(LocalDate debut, LocalDate fin);
-    Map<String, Double> totalDepensesParMois();
+    Double totalDepensesParMois();
 
 }

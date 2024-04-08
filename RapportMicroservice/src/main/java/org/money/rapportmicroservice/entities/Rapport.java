@@ -1,16 +1,9 @@
 package org.money.rapportmicroservice.entities;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.money.depensemicroservice.entities.Depense;
-
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 @Data
 @AllArgsConstructor
@@ -21,8 +14,12 @@ public class Rapport {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idRapport;
-    //todo check if the type is correct jj/mm/aaaa
-    private Date moisAnnee;
 
+    private LocalDate moisAnnee;
 
+//    @ElementCollection
+//    private     Double  totaldepenses;
+//
+//    @ElementCollection
+//    private List<Long> revenues;
 }

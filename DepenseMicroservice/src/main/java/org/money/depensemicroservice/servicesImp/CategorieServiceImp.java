@@ -34,6 +34,7 @@ public class CategorieServiceImp implements CategorieService {
                 });
 
         categorie.setNom(categorieDTO.getNom());
+        categorie.setIcone(categorieDTO.getIcone());
 
 
         return categorieMapper.toDTO(categorieRepository.save(categorie));

@@ -17,6 +17,8 @@ public class CategorieDto implements Serializable {
     Long idCategorie;
     @NotBlank
     String nom;
+    @NotBlank
+    String icone;
 //    @NotNull
 //    @JsonIgnoreProperties(value = {"categorie"})
 //    Budget budget;

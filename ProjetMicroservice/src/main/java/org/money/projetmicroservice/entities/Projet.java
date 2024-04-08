@@ -1,16 +1,14 @@
 package org.money.projetmicroservice.entities;
 
+import lombok.Data;
+
+import java.util.HashSet;
+import java.util.Set;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.money.depensemicroservice.entities.Depense;
 
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -20,12 +18,10 @@ public class Projet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idProjet;
+    @Column(nullable = false)
     private String nomProjet;
-    private double total;
+    @Column(nullable = false)
+    private Double total;
     @ElementCollection
-    private HashSet<Long> depenses;
-
+    private Set<Long> deponses;
 }
-
-
-

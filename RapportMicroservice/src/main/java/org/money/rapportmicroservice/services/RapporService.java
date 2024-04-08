@@ -1,6 +1,7 @@
 package org.money.rapportmicroservice.services;
 
 import org.money.rapportmicroservice.dtos.RapportDto;
+import org.money.rapportmicroservice.dtos.StatistiqueDto;
 import org.money.rapportmicroservice.entities.Rapport;
 
 import java.util.List;
@@ -10,4 +11,11 @@ public interface RapporService {
 
     Map<String, Double> genererRapportMensuel(String titre, String moisAnnee);
     List<RapportDto> getAllRapports();
+    List<RapportDto> rechercherRapport();
+
+    Double getDepensesDuMoisActuel();
+
+    Double getRevenuesDuMoisActuel();
+
+    StatistiqueDto obtenirStatistiques();
 }

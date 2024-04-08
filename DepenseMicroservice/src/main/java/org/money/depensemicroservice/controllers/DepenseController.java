@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/depenses")
 public class DepenseController {
@@ -72,4 +74,10 @@ public class DepenseController {
         List<DepenseDto> depenses = depenseService.obtenirDepensesEntreDates(debut, fin);
         return ResponseEntity.ok(depenses);
     }
+    @GetMapping("/total")
+    public ResponseEntity<Double> totalDepensesParMois() {
+        Double totalParMois = depenseService.totalDepensesParMois();
+        return new ResponseEntity<>(totalParMois, HttpStatus.OK);
+    }
+
 }

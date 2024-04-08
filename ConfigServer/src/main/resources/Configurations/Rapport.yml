@@ -1,0 +1,43 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/rapports
+    username: postgres
+    password: 1234
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  cloud:
+    discovery:
+      enabled: true
+server:
+  port: 4043
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui-custom.html
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
+error:
+  handling:
+    http-statuses:
+      jakarta:
+        persistence:
+          EntityNotFoundException: not_found
+          EntityExistsException: conflict
+    http-status-in-json-response: true
+#servlet:
+#  multipart:
+#    file-size-threshold: 2KB
+#    max-file-size: 200MB
+#    max-request-size: 215MB
+
+

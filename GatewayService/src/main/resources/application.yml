@@ -1,6 +1,14 @@
 spring:
+  main:
+    web-application-type: reactive
   application:
     name: GatewayService
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/money
+          jwk-set-uri: http://localhost:8080/realms/money/protocol/openid-connect/certs
   cloud:
     gateway:
       routes:

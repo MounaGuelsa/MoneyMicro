@@ -14,7 +14,7 @@ spring:
     discovery:
       enabled: true
 server:
-  port: 8088
+  port: 4050
 springdoc:
   api-docs:
     path: /api-docs
@@ -34,4 +34,10 @@ error:
           EntityNotFoundException: not_found
           EntityExistsException: conflict
     http-status-in-json-response: true
+#servlet:
+#  multipart:
+#    file-size-threshold: 2KB
+#    max-file-size: 200MB
+#    max-request-size: 215MB
+
 

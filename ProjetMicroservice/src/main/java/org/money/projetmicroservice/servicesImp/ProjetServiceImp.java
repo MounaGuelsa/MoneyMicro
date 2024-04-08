@@ -1,129 +1,44 @@
-package org.money.projetmicroservice.servicesImp;
+package org.money.projetmicroservice.services.impl;
 
 import lombok.RequiredArgsConstructor;
-import org.money.depensemicroservice.dtos.DepenseDto;
-import org.money.depensemicroservice.entities.Depense;
+import lombok.extern.slf4j.Slf4j;
 import org.money.feignclient.Depense.DepenseClient;
-import org.money.projetmicroservice.dtos.ProjetDto;
-import org.money.projetmicroservice.entities.Projet;
-import org.money.projetmicroservice.exceptions.CustomException;
-import org.money.projetmicroservice.mappers.ProjetMapper;
+import org.money.feignclient.Depense.DepenseDto;
+import org.money.projetmicroservice.dtos.request.ProjetDepenseRequestDto;
 import org.money.projetmicroservice.repositories.ProjetRepository;
 import org.money.projetmicroservice.services.ProjetService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class ProjetServiceImp implements ProjetService {
 
-    private final ProjetMapper projetMapper;
     private final ProjetRepository projetRepository;
     private final DepenseClient depenseClient;
-    private static final Logger LOGGER = LoggerFactory.getLogger(ProjetServiceImp.class);
-
-
 
     @Override
-    public List<ProjetDto> obtenirProjets() {
-        try {
-            return projetRepository.findAll().stream().map(projetMapper::toDTO).collect(Collectors.toList());
-        } catch (Exception e) {
-            LOGGER.error("Une erreur s'est produite lors de la récupération des projets: {}", e.getMessage());
-            throw new CustomException("Erreur lors de la récupération des projets", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    public void ajouterProjetAvecDepenses(ProjetDepenseRequestDto projetDepenseRequestDto) {
+//        log.info("Ajouter nouveau projet avec dépenses");
+//
+//        List<ProjetDepenseRequestDto.DepenseDto> depenses = projetDepenseRequestDto.getDepenses();
+//        if (depenses != null) {
+//            for (ProjetDepenseRequestDto.DepenseDto depense : depenses) {
+//
+//                ResponseEntity<DepenseDto> response = depenseClient.ajouterDepense(DepenseDto);
+//                if (response.getStatusCode() == HttpStatus.OK) {
+//                    DepenseDto addedDepenseDto = response.getBody();
+//                    log.info("Depense ajoutée: {}", addedDepenseDto);
+//                } else {
+//                    log.error("Failed to add depense: {}", response.getStatusCode());
+//                }
+//            }
+//        }
     }
 
-    @Override
-    public ProjetDto obtenirProjetParId(Long id) {
-        try {
-            Optional<Projet> projetOptional = projetRepository.findById(id);
-            if (projetOptional.isPresent()) {
-                return projetMapper.toDTO(projetOptional.get());
-            } else {
-                LOGGER.warn("Projet introuvable avec l'ID: {}", id);
-                throw new CustomException("Projet introuvable avec l'ID: " + id, HttpStatus.NOT_FOUND);
-            }
-        } catch (Exception e) {
-            LOGGER.error("Une erreur s'est produite lors de la récupération du projet avec ID {}: {}", id, e.getMessage());
-            throw new CustomException("Erreur lors de la récupération du projet par ID", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
-    @Override
-    public ProjetDto ajouterProjet(ProjetDto projetDto) {
-        try {
-            Projet projet = projetMapper.toEntity(projetDto);
-            projetRepository.save(projet);
-            return projetMapper.toDTO(projet);
-        } catch (Exception e) {
-            LOGGER.error("Une erreur s'est produite lors de l'ajout de ce projet: {}", e.getMessage());
-            throw new CustomException("Erreur lors de l'ajout du projet", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
-    @Override
-    public ProjetDto modifierProjet(Long id, ProjetDto projetDto) {
-        try {
-            Optional<Projet> projetOptional = projetRepository.findById(id);
-            if (projetOptional.isPresent()) {
-                Projet projet = projetOptional.get();
-                // Mettre à jour les attributs du projet
-                // Exemple: projet.setNomProjet(projetDto.getNomProjet());
-                projetRepository.save(projet);
-                return projetMapper.toDTO(projet);
-            } else {
-                LOGGER.warn("Projet avec cet ID introuvable: {}", id);
-                throw new CustomException("Projet avec cet ID introuvable: " + id, HttpStatus.NOT_FOUND);
-            }
-        } catch (Exception e) {
-            LOGGER.error("Une erreur s'est produite lors de la modification du projet avec ID {}: {}", id, e.getMessage());
-            throw new CustomException("Erreur lors de la modification du projet", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
-    @Override
-    public void supprimerProjet(Long id) {
-        try {
-            Optional<Projet> projetOptional = projetRepository.findById(id);
-            if (projetOptional.isPresent()) {
-                projetRepository.deleteById(id);
-            } else {
-                LOGGER.warn("Projet avec cet ID introuvable: {}", id);
-                throw new CustomException("Projet avec cet ID introuvable: " + id, HttpStatus.NOT_FOUND);
-            }
-        } catch (Exception e) {
-            LOGGER.error("Une erreur s'est produite lors de la suppression du projet avec ID {}: {}", id, e.getMessage());
-            throw new CustomException("Erreur lors de la suppression du projet", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-    @Override
-    public ProjetDto ajouterProjetAvecDepenses(ProjetDto projetDto, List<DepenseDto> depensesDto) {
-        try {
-            Projet projet = projetMapper.toEntity(projetDto);
-
-            // Convertir les dépenses DTO en entités Depense
-            List<Depense> depenses = depensesDto.stream()
-                    .map(depenseDto -> {
-                        Depense depense = depenseMapper.toEntity(depenseDto);
-                        // Assurez-vous que la dépense créée est associée au projet
-                        projet.ajouterDepense(depense);
-                        return depense;
-                    })
-                    .collect(Collectors.toList());
-
-            projetRepository.save(projet);
-            return projetMapper.toDTO(projet);
-        } catch (Exception e) {
-            LOGGER.error("Une erreur s'est produite lors de l'ajout de ce projet avec des dépenses: {}", e.getMessage());
-            throw new CustomException("Erreur lors de l'ajout du projet avec des dépenses", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
 
 }

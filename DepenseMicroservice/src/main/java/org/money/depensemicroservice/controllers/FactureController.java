@@ -5,11 +5,11 @@ import org.money.depensemicroservice.services.FactureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/factures")
 public class FactureController {
@@ -37,11 +37,11 @@ public class FactureController {
         }
     }
 
-    @PostMapping
-    public ResponseEntity<FactureDto> ajouterFacture(@RequestBody FactureDto factureDto) {
-        FactureDto facture = factureService.ajouterFacture(factureDto);
-        return ResponseEntity.status(HttpStatus.CREATED).body(facture);
-    }
+//    @PostMapping
+//    public ResponseEntity<FactureDto> ajouterFacture(@RequestBody FactureDto factureDto) {
+//        FactureDto facture = factureService.ajouterFacture(factureDto);
+//        return ResponseEntity.status(HttpStatus.CREATED).body(facture);
+//    }
 
     @PutMapping("/{id}")
     public ResponseEntity<FactureDto> modifierFacture(@PathVariable Long id, @RequestBody FactureDto factureDto) {
@@ -58,4 +58,18 @@ public class FactureController {
         factureService.supprimerFacture(id);
         return ResponseEntity.noContent().build();
     }
+//    @PostMapping("/save")
+//    public String saveFacture(@RequestParam("file") MultipartFile file,
+//                              @RequestParam("nomFacture") String nomFacture) throws IOException {
+//        FactureDto factureDto = FactureDto.createFactureDto(null, nomFacture,  null);
+//        return factureService.saveImage(file, factureDto);
+//    }
+    @PostMapping
+    public ResponseEntity<FactureDto> upload (@RequestParam ( "multipartFile" ) MultipartFile multipartFile , @RequestParam("nomFacture") String nomFacture) {
+        FactureDto factureDto = FactureDto.createFactureDto(null, nomFacture,  null);
+        FactureDto facture= factureService.importerFacture(multipartFile, factureDto);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(facture);
+    }
+
 }

@@ -21,9 +21,7 @@ public class Depense {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idDepense;
-
     private double montant;
-
     private LocalDate date;
     private String description;
     private String notes;
