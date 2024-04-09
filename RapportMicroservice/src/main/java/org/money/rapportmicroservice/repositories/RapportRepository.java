@@ -8,5 +8,6 @@ import java.util.Date;
 import java.util.List;
 
 public interface RapportRepository extends JpaRepository<Rapport, Long> {
-    List<Rapport> findByMoisAnneeBefore(LocalDate date);
+
+    List<Rapport> findByMoisAnneeBetween(LocalDate dateDebut, LocalDate dateFin);
 }

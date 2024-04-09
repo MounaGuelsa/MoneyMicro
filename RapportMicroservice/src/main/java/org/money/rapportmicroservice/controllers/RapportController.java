@@ -1,17 +1,17 @@
 package org.money.rapportmicroservice.controllers;
 
 import lombok.RequiredArgsConstructor;
-import org.money.feignclient.Depense.DepenseClient;
-import org.money.feignclient.Revenue.RevenueClient;
+import org.money.rapportmicroservice.dtos.RapportDto;
 import org.money.rapportmicroservice.dtos.StatistiqueDto;
-import org.money.rapportmicroservice.entities.Rapport;
-import org.money.rapportmicroservice.services.RapporService;
+import org.money.rapportmicroservice.services.RapportService;
+import org.money.rapportmicroservice.servicesImp.RapportServiceImp;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -19,24 +19,49 @@ import java.time.LocalDate;
 @RequestMapping("/rapports")
 public class RapportController {
 
-    private final DepenseClient depenseClient;
-    private final RevenueClient revenueClient;
-    private final RapporService rapportService;
+    private final RapportService rapportService;
 
-    @GetMapping("/depensesMoisActuel")
-    public ResponseEntity<Double> getDepensesDuMoisActuel() {
-        Double total = depenseClient.totalDepensesParMois();
-        return ResponseEntity.ok(total);
-    }
-
-    @GetMapping("/revenuesMoisActuel")
-    public ResponseEntity<Double> getRevenuesDuMoisActuel() {
-        Double total = revenueClient.totalRevenuesParMois();
-        return ResponseEntity.ok(total);
-    }
+    private static final Logger LOGGER = LoggerFactory.getLogger(RapportServiceImp.class);
     @GetMapping("/statistics")
-    public ResponseEntity<StatistiqueDto> getFinanceStatistics() {
+    public ResponseEntity<StatistiqueDto> obtenirStatistics() {
         StatistiqueDto statistics = rapportService.obtenirStatistiques();
         return ResponseEntity.ok(statistics);
     }
+    @GetMapping("/generate")
+    public ResponseEntity<Void> generateRapports() {
+        rapportService.generateRapports();
+        return ResponseEntity.noContent().build();
+    }
+    @GetMapping("/liste")
+    public ResponseEntity<List<RapportDto>> obtenirListeRapports() {
+        try {
+            List<RapportDto> rapports = rapportService.obtenirListeRapports();
+            return new ResponseEntity<>(rapports, HttpStatus.OK);
+        } catch (Exception e) {
+            LOGGER.error("Erreur lors de la récupération de la liste des rapports : {}", e.getMessage());
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> supprimerRapport(@PathVariable Long id) {
+        try {
+            rapportService.supprimerRapport(id);
+            return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            LOGGER.error("Erreur lors de la suppression du rapport : {}", e.getMessage());
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    @GetMapping("/parMois/{mois}/{annee}")
+    public ResponseEntity<List<RapportDto>> obtenirRapportsParMois(@PathVariable int mois, @PathVariable int annee) {
+        try {
+            List<RapportDto> rapports = rapportService.obtenirRapportsParMois(mois, annee);
+            return new ResponseEntity<>(rapports, HttpStatus.OK);
+        } catch (Exception e) {
+            LOGGER.error("Erreur lors de la récupération des rapports par mois : {}", e.getMessage());
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+
 }

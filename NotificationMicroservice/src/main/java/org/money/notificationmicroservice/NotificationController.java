@@ -17,7 +17,6 @@ public class NotificationController {
     public NotificationController(NotificationService notificationService) {
         this.notificationService = notificationService;
     }
-
     @GetMapping
     public ResponseEntity<List<NotificationDTO>> obtenirNotifications() {
         try {

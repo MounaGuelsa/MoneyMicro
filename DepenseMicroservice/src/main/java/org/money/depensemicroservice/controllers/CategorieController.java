@@ -26,7 +26,6 @@ public class CategorieController {
         List<CategorieDto> categories = categorieService.obtenirCategories();
         return new ResponseEntity<>(categories,HttpStatus.OK);
     }
-
     @GetMapping("/{id}")
     public ResponseEntity<CategorieDto> obtenirCategorieParId(@PathVariable Long id) {
         CategorieDto categorie = categorieService.obtenirCategorieParId(id);

@@ -10,16 +10,11 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 public class Rapport {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idRapport;
-
     private LocalDate moisAnnee;
-
-//    @ElementCollection
-//    private     Double  totaldepenses;
-//
-//    @ElementCollection
-//    private List<Long> revenues;
+    private Double depenses;
+    private Double revenus;
+    private Double balance;
 }

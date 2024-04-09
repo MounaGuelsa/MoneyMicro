@@ -1,6 +1,6 @@
 
 ¯
-java:S1192 "lDefine a constant instead of duplicating this literal "La catÃ©gorie avec l'ID {} est introuvable." 3 times.(£á©’8Æ©‡¤ë1J$74b862a4-7743-4289-9c25-09cd9ea7b8bb
-¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Øìõ±øÿÿÿÿ8Ó©‡¤ë1J$4e41e8e6-c430-4b2b-bda6-d146d29123c2
+java:S1192 "lDefine a constant instead of duplicating this literal "La catÃ©gorie avec l'ID {} est introuvable." 3 times.(£á©’8Æ©‡¤ë1J$fc99fef6-36f6-48f8-a5a8-208ff99c736e
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Øìõ±øÿÿÿÿ8Ó©‡¤ë1J$923c8691-3b49-40e0-b5e0-8dc951aa0ef3
 •
-java:S62040"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8Î«‡¤ë1J$cda62b50-4e32-454d-865c-13390bac3594
+java:S62040"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8Î«‡¤ë1J$70bd331e-39dd-4baa-ad59-969158296a2f

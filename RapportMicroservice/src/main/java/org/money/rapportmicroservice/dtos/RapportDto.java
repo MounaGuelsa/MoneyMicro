@@ -1,18 +1,20 @@
 package org.money.rapportmicroservice.dtos;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+
 import lombok.Value;
+import org.money.rapportmicroservice.entities.Rapport;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 /**
- * DTO for {@link org.money.rapportmicroservice.entities.Rapport}
+ * DTO for {@link Rapport}
  */
 @Value
 public class RapportDto implements Serializable {
-    @NotNull
     Long idRapport;
-    @NotBlank
-    String moisAnnee;
+    LocalDate moisAnnee;
+    Double depenses;
+    Double revenus;
+    Double balance;
 }

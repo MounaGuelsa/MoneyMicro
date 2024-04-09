@@ -496,8 +496,6 @@ G.idea/sonarlint/issuestore/e/c/ecab699a68f21b8ddc3ad873f21f897e7e2aa50c,0\e\0e
 TRapportMicroservice/src/main/java/org/money/rapportmicroservice/dtos/RapportDto.java,0\1\01373a185c02173d95cc51d5c795917580c5991b
 Š
 ZRapportMicroservice/src/main/java/org/money/rapportmicroservice/mappers/RapportMapper.java,1\3\132b21d980b17d6c779fbcb37601d9c7050136fe
-‹
-[RapportMicroservice/src/main/java/org/money/rapportmicroservice/services/RapporService.java,5\8\584717a7629f881475a8a09b2d9bc5884de36cfb
 ’
 bRapportMicroservice/src/main/java/org/money/rapportmicroservice/servicesImp/RapportServiceImp.java,5\6\56e9e05b3b9d0816a069cc64b3140de6cc83c869
 |
@@ -564,3 +562,13 @@ z
 JFeignClient/src/main/java/org/money/feignclient/Revenue/RevenueClient.java,b\1\b119f9cf67863a94cea95a268288a60c651fe3e6
 ˆ
 XRapportMicroservice/src/main/java/org/money/rapportmicroservice/dtos/StatistiqueDto.java,a\f\af1d8f77642798a780338215bcca251869041756
+€
+PRevenueMicroservice/src/test/java/org/money/revenue/RevenueApplicationTests.java,7\0\705203acd16cdd31483ac984b7131c5828477f72
+Œ
+\RevenueMicroservice/src/main/java/org/money/revenuemicroservice/services/RevenueService.java,f\b\fb3fce288d04452e8a562ed5a7fcf190646442f7
+Š
+ZRevenueMicroservice/src/main/java/org/money/revenuemicroservice/mappers/RevenueMapper.java,a\2\a2f6cc0655dbc77c7ce510a906858265916bd83b
+‹
+[RapportMicroservice/src/main/java/org/money/rapportmicroservice/config/SchedulerConfig.java,7\4\745a15d9dbb4248a5bc630d3e56f0188f32a7a20
+Œ
+\RapportMicroservice/src/main/java/org/money/rapportmicroservice/services/RapportService.java,2\a\2ab3fc55382de82ad74fb205deba9bb2f2ef4db2

@@ -22,7 +22,6 @@ public class UtilisateurController {
     public UtilisateurController(UtilisateurService utilisateurService) {
         this.utilisateurService = utilisateurService;
     }
-
     @GetMapping
     public ResponseEntity<List<UtilisateurDto>> obtenirTousLesUtilisateurs() {
         try {
