@@ -1,0 +1,18 @@
+
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(èàÌâøÿÿÿÿJ$b648a3f2-2050-4246-8189-7b916cd2453c
+ˆ
+java:S1128"ERemove this unused import 'org.money.feignclient.Depense.DepenseDto'.(­ØÄ¨8êÌ Îë1J$789d695e-8dde-4e8d-9f00-0aded7345830
+Œ
+java:S1128"DRemove this unused import 'org.springframework.http.ResponseEntity'.(¶¯ø¦úÿÿÿÿ8êÌ Îë1J$fc62a6f7-b754-4fb7-ba3a-9516a86268c6
+’
+java:S1128"ORemove this unused import 'org.springframework.web.bind.annotation.GetMapping'.(‡¡‰Ø8˜é†×ë1J$e64a3a84-f778-4a9c-996b-32f01e6c4327
+˜
+java:S1128"PRemove this unused import 'org.springframework.web.bind.annotation.PostMapping'.(äƒà°ùÿÿÿÿ8êÌ Îë1J$f0972f93-49dd-4dc5-823d-cb035cae4657
+˜
+java:S1128"PRemove this unused import 'org.springframework.web.bind.annotation.RequestBody'.(â­½Àıÿÿÿÿ8ëÌ Îë1J$66583cda-83b3-4e17-8b4c-b0b61c12d8c9
+™
+java:S1128	"QRemove this unused import 'org.springframework.web.bind.annotation.ResponseBody'.(•¶¶êøÿÿÿÿ8™é†×ë1J$d6efeb98-f115-4a08-aa1d-79204363cada
+s
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8ëÌ Îë1J$19333b5a-2e17-4eb7-8038-263dec5d52ab
+r
+java:S1128"*Remove this unused import 'java.util.Map'.(¼è½Òşÿÿÿÿ8ÚåğÒë1J$b5db4792-8d0b-4f71-b0dc-fc380290f355

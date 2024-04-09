@@ -1,0 +1,15 @@
+
+›	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Æ±ì;8ø£Ÿ¼è1J$0df7cac3-8f49-4075-aadd-5126e1d9bbd2
+Œ
+java:S1128"DRemove this unused import 'org.springframework.http.ResponseEntity'.(¶¯ø¦úÿÿÿÿ8®ÐëÒë1J$f63f525a-7b52-4ac3-9b36-20235092ce38
+™
+java:S1128"QRemove this unused import 'org.springframework.web.bind.annotation.PathVariable'.(¹ûñÅþÿÿÿÿ8®ÐëÒë1J$55bafd87-6c05-4114-b08e-83e3413b0b9e
+˜
+java:S1128"PRemove this unused import 'org.springframework.web.bind.annotation.PostMapping'.(äƒà°ùÿÿÿÿ8¯ÐëÒë1J$08ca38dd-420e-483b-a19f-d0aebe169ab9
+˜
+java:S1128"PRemove this unused import 'org.springframework.web.bind.annotation.RequestBody'.(â­½Àýÿÿÿÿ8¯ÐëÒë1J$1659081f-3b9e-40cf-9e32-61b867bd882d
+s
+java:S1128
+"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8¯ÐëÒë1J$e19afe45-a681-4514-ae77-9e13cda764fe
+r
+java:S1128"*Remove this unused import 'java.util.Map'.(¼è½Òþÿÿÿÿ8¯ÐëÒë1J$13a7e206-6217-438b-9429-4b95292f0562
