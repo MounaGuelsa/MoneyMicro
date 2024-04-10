@@ -1,92 +1,54 @@
 package org.money.notificationmicroservice;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
 public class NotificationServiceImp implements  NotificationService{
-    private final NotificationRepository notificationRepository;
-    private final NotificationMapper notificationMapper;
     private static final Logger LOGGER = LoggerFactory.getLogger(NotificationServiceImp.class);
 
-
-
     @Override
-    public List<NotificationDTO> obtenirNotifications() {
-        try {
-            List<Notification> notifications = notificationRepository.findAll();
-            return notifications.stream()
-                    .map(notificationMapper::toDTO)
-                    .collect(Collectors.toList());
-        } catch (Exception e) {
-            LOGGER.error("Erreur lors de la récupération des notifications : {}", e.getMessage());
-            throw new RuntimeException("Erreur lors de la récupération des notifications", e);
-        }
+    public void supprimmerNotification(String id) {
+        // Initialize Firebase Database
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference notificationsRef = database.getReference("notifications");
+        LOGGER.debug("Notification ID: {}", id);
+
+        // Delete the notification from Firebase Realtime Database
+        notificationsRef.child(id).removeValueAsync();
+        LOGGER.info("Notification deleted successfully");
     }
 
     @Override
-    public NotificationDTO obtenirNotificationParId(Long id) {
-        try {
-            Optional<Notification> notificationOptional = notificationRepository.findById(id);
-            return notificationOptional.map(notificationMapper::toDTO).orElse(null);
-        } catch (Exception e) {
-            LOGGER.error("Erreur lors de la récupération de la notification avec l'ID {} : {}", id, e.getMessage());
-            throw new RuntimeException("Erreur lors de la récupération de la notification par ID", e);
-        }
-    }
+    public void envoyerNotification(Notification notification) {
+        // Initialize Firebase Database
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference notificationsRef = database.getReference("notifications");
 
-    @Override
-    public NotificationDTO envoyerNotification(NotificationDTO notificationDTO) {
-        try {
-            Notification notification = notificationMapper.toEntity(notificationDTO);
-            notification = notificationRepository.save(notification);
-            return notificationMapper.toDTO(notification);
-        } catch (Exception e) {
-            LOGGER.error("Erreur lors de l'e.nvoi de la notification : {}", e.getMessage());
-            throw new RuntimeException("Erreur lors de l'envoi de la notification", e);
-        }
-    }
+        // Generate a unique key for the notification
+        String key = notificationsRef.push().getKey();
 
-    @Override
-    public void supprimerNotification(Long id) {
-        try {
-            notificationRepository.deleteById(id);
-        } catch (Exception e) {
-            LOGGER.error("Erreur lors de la suppression de la notification avec l'ID {} : {}", id, e.getMessage());
-            throw new RuntimeException("Erreur lors de la suppression de la notification", e);
-        }
-    }
 
-    @Override
-    public void marquerCommeLu(Long id) {
-        try {
-            Optional<Notification> notificationOptional = notificationRepository.findById(id);
-            notificationOptional.ifPresent(notification -> {
-                notification.setLu(true);
-                notificationRepository.save(notification);
-            });
-        } catch (Exception e) {
-            LOGGER.error("Erreur lors du marquage de la notification comme lue avec l'ID {} : {}", id, e.getMessage());
-            throw new RuntimeException("Erreur lors du marquage de la notification comme lue", e);
-        }
-    }
+        // Prepare the notification data
+        Map<String, Object> notificationData = new HashMap<>();
+        notificationData.put("contenuNotif", notification.getContenuNotif());
+        notificationData.put("dateCreationNotif",LocalDate.now().toString() );
 
-    @Override
-    public List<NotificationDTO> obtenirNotificationsNonLues() {
-        try {
-            List<Notification> notifications = notificationRepository.findByLuFalse();
-            return notifications.stream()
-                    .map(notificationMapper::toDTO)
-                    .collect(Collectors.toList());
-        } catch (Exception e) {
-            LOGGER.error("Erreur lors de la récupération des notifications non lues : {}", e.getMessage());
-            return null;        }
+        LOGGER.debug("Notification data: {}", notificationData);
+
+        notificationsRef.child(key).setValueAsync(notificationData);
+        LOGGER.info("Notification sent successfully");
     }
 }

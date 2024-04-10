@@ -1,12 +1,11 @@
 
-“	java:S117~"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ù’ÕÔ8½„­Ûê1J$20a0b8c2-0b1c-4f83-a844-0f2d3c1e1460
-™	java:S117–"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾åã×øÿÿÿÿ8Ã„­Ûê1J$0bfc6492-c7f1-4c20-8e37-01baa1f2df03
-¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Øìõ±øÿÿÿÿ8ç„­Ûê1J$40edbc31-1e6d-4996-bfb1-fe687289518d
+“	java:S117h"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ù’ÕÔ8½„­Ûê1J$d880a686-57c0-40a4-86c3-6d49ec759ca4
+™	java:S117€"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾åã×øÿÿÿÿ8Ã„­Ûê1J$52f7e046-9402-4b58-90f9-2e06b9459af0
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Øìõ±øÿÿÿÿ8ç„­Ûê1J$44c87551-05ef-446d-9191-f7201fead7ea
 •
-java:S6204/"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8œˆ­Ûê1J$8e03d6e1-9cea-41b9-b0b1-73e765905ac3
-~	java:S125l"<This block of commented-out lines of code should be removed.(ú·ÏÚ8Ëˆ­Ûê1J$d35adc85-555e-4348-9df0-12b14f60d6b4
-«
-java:S4087†"bRemove this "close" call; closing the resource is handled automatically by the try-with-resources.(æŒÕ®ùÿÿÿÿ8íˆ­Ûê1J$32796e0b-62ef-4ff0-a297-752ed25d7963
-ƒ	java:S899";Do something with the "boolean" value returned by "delete".(²Œ­ûÿÿÿÿ8Š‰­Ûê1J$637dc2fd-5248-48cb-a494-7ffa1439d7d9
+java:S6204/"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8œˆ­Ûê1J$bd473275-70a6-43bb-99fa-295d6050c200
+ª
+java:S4087p"bRemove this "close" call; closing the resource is handled automatically by the try-with-resources.(æŒÕ®ùÿÿÿÿ8íˆ­Ûê1J$94a9c85e-477e-43ad-89d4-ab4a36424868
+ƒ	java:S899‡";Do something with the "boolean" value returned by "delete".(²Œ­ûÿÿÿÿ8Š‰­Ûê1J$12444047-5f94-4c9a-bb89-cec1f1df5108
 —
-java:S4042"NUse "java.nio.file.Files#delete" here for better messages on error conditions.(²Œ­ûÿÿÿÿ8“‰­Ûê1J$c81e178e-5f7f-453e-be3d-a80104efb4b8
+java:S4042‡"NUse "java.nio.file.Files#delete" here for better messages on error conditions.(²Œ­ûÿÿÿÿ8“‰­Ûê1J$dc6ab19f-c49f-48f7-940b-c6857b76bf18

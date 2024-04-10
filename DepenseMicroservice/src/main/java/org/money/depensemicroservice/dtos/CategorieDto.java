@@ -1,10 +1,9 @@
 package org.money.depensemicroservice.dtos;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Value;
-//import org.money.depensemicroservice.entities.Budget;
 
 import java.io.Serializable;
 
@@ -19,7 +18,5 @@ public class CategorieDto implements Serializable {
     String nom;
     @NotBlank
     String icone;
-//    @NotNull
-//    @JsonIgnoreProperties(value = {"categorie"})
-//    Budget budget;
+
 }

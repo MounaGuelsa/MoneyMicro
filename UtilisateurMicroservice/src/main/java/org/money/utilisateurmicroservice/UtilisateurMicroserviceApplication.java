@@ -8,7 +8,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients(basePackages = "org.money.utilisateurmicroservice")
+@EnableFeignClients(basePackages = "org.money")
 
 public class UtilisateurMicroserviceApplication {
 

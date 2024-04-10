@@ -17,14 +17,11 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-public class Notification {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idNotif;
 
+public class Notification {
+
+    private String idNotif;
     private String contenuNotif;
     private boolean lu= false;
     private LocalDateTime dateCreationNotif;
-    private Long utilisateurId;
 }

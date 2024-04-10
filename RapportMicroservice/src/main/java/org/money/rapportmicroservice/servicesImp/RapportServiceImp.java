@@ -27,13 +27,13 @@ public class RapportServiceImp implements RapportService {
     private final RapportRepository rapportRepository;
     private final DepenseClient depenseClient;
     private final RevenueClient revenueClient;
-    private  RapportMapper rapportMapper;
+    private  final RapportMapper rapportMapper;
     private static final Logger LOGGER = LoggerFactory.getLogger(RapportServiceImp.class);
 
    //private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
 
-    @Scheduled(cron = "0 28 0 8 4 ?")
+    @Scheduled(cron = "0 18 02 10 4 ?")
     public void generateRapports() {
         Double depenses = depenseClient.totalDepensesParMois();
         Double revenus = revenueClient.totalRevenuesParMois();
@@ -44,10 +44,8 @@ public class RapportServiceImp implements RapportService {
         rapport.setDepenses(depenses);
         rapport.setRevenus(revenus);
         rapport.setBalance(balance);
-
         rapportRepository.save(rapport);
     }
-
     @Override
     public StatistiqueDto obtenirStatistiques() {
         Double depenses = depenseClient.totalDepensesParMois();

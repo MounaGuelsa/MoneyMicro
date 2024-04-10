@@ -37,12 +37,6 @@ public class FactureController {
         }
     }
 
-//    @PostMapping
-//    public ResponseEntity<FactureDto> ajouterFacture(@RequestBody FactureDto factureDto) {
-//        FactureDto facture = factureService.ajouterFacture(factureDto);
-//        return ResponseEntity.status(HttpStatus.CREATED).body(facture);
-//    }
-
     @PutMapping("/{id}")
     public ResponseEntity<FactureDto> modifierFacture(@PathVariable Long id, @RequestBody FactureDto factureDto) {
         FactureDto facture = factureService.modifierFacture(id, factureDto);
@@ -58,12 +52,6 @@ public class FactureController {
         factureService.supprimerFacture(id);
         return ResponseEntity.noContent().build();
     }
-//    @PostMapping("/save")
-//    public String saveFacture(@RequestParam("file") MultipartFile file,
-//                              @RequestParam("nomFacture") String nomFacture) throws IOException {
-//        FactureDto factureDto = FactureDto.createFactureDto(null, nomFacture,  null);
-//        return factureService.saveImage(file, factureDto);
-//    }
     @PostMapping
     public ResponseEntity<FactureDto> upload (@RequestParam ( "multipartFile" ) MultipartFile multipartFile , @RequestParam("nomFacture") String nomFacture) {
         FactureDto factureDto = FactureDto.createFactureDto(null, nomFacture,  null);

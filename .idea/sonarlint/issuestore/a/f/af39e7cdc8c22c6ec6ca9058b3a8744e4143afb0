@@ -1,18 +1,16 @@
 
-¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Øìõ±øÿÿÿÿ8 Þü…ê1J$7db92658-044f-4f58-8e77-0b00ccb60d93
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Øìõ±øÿÿÿÿ8 Þü…ê1J$413cfcb1-28a7-4526-95cc-bcb61adeb135
 ƒ	java:S125
-"<This block of commented-out lines of code should be removed.(ë–³Çþÿÿÿÿ8ºÞü…ê1J$6e02c65a-5316-4688-9164-ab3421083525
+"<This block of commented-out lines of code should be removed.(ë–³Çþÿÿÿÿ8ºÞü…ê1J$c308d20e-6d9e-472c-a8fe-42528c8d5a73
 •
-java:S6204'"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8áÃÁÒë1J$2f59a4b6-6197-4cc1-af5f-08d31242fb62
-•
-java:S6204l"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8“ÄÁÒë1J$2f83d2cc-0479-4315-b238-e0702811377d
-•
-java:S6204y"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8œÄÁÒë1J$bb6c5782-dfc2-4497-80d9-228066267b91
+java:S6204'"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8áÃÁÒë1J$85498817-7638-4ed4-bb77-3a7d6f578fb4
 x
-java:S1128"0Remove this unused import 'java.time.YearMonth'.(€°’Ñùÿÿÿÿ8í Øë1J$5476fecd-fc25-4c0d-ba30-15de9dc492d5
+java:S1128"0Remove this unused import 'java.time.LocalDate'.(›‘¬èýÿÿÿÿ8¤Ë—…ì1J$32331ad5-37bb-4a27-8591-d3c999c89e9d
+x
+java:S1128"0Remove this unused import 'java.time.YearMonth'.(€°’Ñùÿÿÿÿ8¤Ë—…ì1J$ae874eeb-f1b7-43b2-9a2c-ba530ccd502d
 ‚
-java:S1128"?Remove this unused import 'java.time.format.DateTimeFormatter'.(‰÷÷ª8ží Øë1J$981607d9-889d-437d-91a3-d82b3f0fface
+java:S1128"?Remove this unused import 'java.time.format.DateTimeFormatter'.(‰÷÷ª8¤Ë—…ì1J$596ba0f3-48b7-4ae3-afcb-9a741c383533
 v
-java:S1128".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ8ží Øë1J$a7e757fb-0b8e-4921-b65b-b3cf1be0523d
+java:S1128".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ8¤Ë—…ì1J$bd6d785b-e047-4f5a-a747-e12baf71938f
 r
-java:S1128"*Remove this unused import 'java.util.Map'.(¼è½Òþÿÿÿÿ8ží Øë1J$2242ab88-402f-4189-be6e-ec0cfc6825a7
+java:S1128"*Remove this unused import 'java.util.Map'.(¼è½Òþÿÿÿÿ8¤Ë—…ì1J$41e2f97e-9c70-4b4d-aaf9-fda1f2bd252a

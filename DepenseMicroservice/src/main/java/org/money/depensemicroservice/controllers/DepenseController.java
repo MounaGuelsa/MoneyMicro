@@ -6,12 +6,10 @@ import org.money.depensemicroservice.services.DepenseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.List;
-import java.util.Map;
+
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -63,17 +61,6 @@ public class DepenseController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/utilisateur/{utilisateurId}")
-    public ResponseEntity<List<DepenseDto>> obtenirDepensesParUtilisateur(@PathVariable Long utilisateurId) {
-        List<DepenseDto> depenses = depenseService.obtenirDepensesParUtilisateur(utilisateurId);
-        return ResponseEntity.ok(depenses);
-    }
-
-    @GetMapping("/entreDates")
-    public ResponseEntity<List<DepenseDto>> obtenirDepensesEntreDates(@RequestParam("debut") LocalDate debut, @RequestParam("fin") LocalDate fin) {
-        List<DepenseDto> depenses = depenseService.obtenirDepensesEntreDates(debut, fin);
-        return ResponseEntity.ok(depenses);
-    }
     @GetMapping("/total")
     public ResponseEntity<Double> totalDepensesParMois() {
         Double totalParMois = depenseService.totalDepensesParMois();

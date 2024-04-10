@@ -62,17 +62,6 @@ public class FactureServiceImp implements FactureService {
         }
     }
 
-    @Override
-    public FactureDto ajouterFacture(FactureDto factureDTO) {
-        try {
-            Facture facture = factureMapper.toEntity(factureDTO);
-            facture = factureRepository.save(facture);
-            return factureMapper.toDTO(facture);
-        } catch (Exception e) {
-            LOGGER.error("Erreur lors de l'ajout de la facture : {}", e.getMessage());
-            throw new CustomException("Erreur lors de l'ajout de la facture", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
 
     @Override
     public FactureDto modifierFacture(Long id, FactureDto factureDTO) {
@@ -103,17 +92,6 @@ public class FactureServiceImp implements FactureService {
             throw new CustomException("Erreur lors de la suppression de la facture", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-//    @Override
-//        public String saveImage(MultipartFile file, FactureDto factureDto) throws IOException {
-//            Facture facture = new Facture();
-//            facture.setNumeroFacture(factureDto.getNumeroFacture());
-//            facture.setNomFacture(factureDto.getNomFacture());
-//            facture.setUrl(facture.getUrl());
-//
-//            factureRepository.save(facture);
-//            return "Image enregistrée dans la base de données avec succès pour la facture " + facture.getNumeroFacture();
-//        }
    @Override
    public String uploadFile(File file, String fileName) throws IOException {
         BlobId blobId = BlobId.of("facture-e8737.appspot.com", fileName); // Replace with your bucker name
@@ -146,14 +124,14 @@ public class FactureServiceImp implements FactureService {
             String fileName = multipartFile.getOriginalFilename();                        // to get original file name
             fileName = UUID.randomUUID().toString().concat(this.getExtension(fileName));  // to generated random string values for file name.
 
-            File file = this.convertToFile(multipartFile, fileName);                      // to convert multipartFile to File
+            File file = this.convertToFile(multipartFile, fileName);
             String URL = this.uploadFile(file, fileName);
             Facture facture = new Facture();
            facture.setNumeroFacture(factureDto.getNumeroFacture());
            facture.setNomFacture(factureDto.getNomFacture());
             facture.setUrl(URL);
 
-           factureRepository.save(facture);// to get uploaded file link
+           factureRepository.save(facture);
             file.delete();
             return factureMapper.toDTO(facture);
         }catch (Exception e) {

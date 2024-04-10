@@ -99,31 +99,8 @@ public class DepenseServiceImp implements DepenseService {
         }
     }
 
-    @Override
-    public List<DepenseDto> obtenirDepensesParUtilisateur(Long utilisateurId) {
-        try {
-            List<Depense> depenses = depenseRepository.findByUtilisateurId(utilisateurId);
-            return depenses.stream()
-                    .map(depenseMapper::toDTO)
-                    .collect(Collectors.toList());
-        } catch (Exception e) {
-            LOGGER.error("Erreur lors de la récupération des dépenses pour l'utilisateur avec l'ID {} : {}", utilisateurId, e.getMessage());
-            throw new CustomException("Erreur lors de la récupération des dépenses pour l'utilisateur", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
 
-    @Override
-    public List<DepenseDto> obtenirDepensesEntreDates(LocalDate debut, LocalDate fin) {
-        try {
-            List<Depense> depenses = depenseRepository.findDepensesByCurrentMonth();
-            return depenses.stream()
-                    .map(depenseMapper::toDTO)
-                    .collect(Collectors.toList());
-        } catch (Exception e) {
-            LOGGER.error("Erreur lors de la récupération des dépenses entre les dates {} et {} : {}", debut, fin, e.getMessage());
-            throw new CustomException("Erreur lors de la récupération des dépenses entre les dates", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+
     @Override
     public Double totalDepensesParMois() {
         try {

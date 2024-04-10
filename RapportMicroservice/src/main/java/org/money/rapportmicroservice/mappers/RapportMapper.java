@@ -10,6 +10,6 @@ import org.springframework.stereotype.Component;
 public interface RapportMapper {
 
     RapportMapper INSTANCE = Mappers.getMapper(RapportMapper.class);
-    RapportDto toDTO(Rapport r);
-    Rapport toEntity(RapportDto r);
+    RapportDto toDTO (Rapport rapport);
+    Rapport toEntity (RapportDto rapportDto);
 }
