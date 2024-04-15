@@ -25,7 +25,6 @@ public class Depense {
     private LocalDate date;
     private String description;
     private String notes;
-
     @ManyToOne
     @JoinColumn(name = "idCategorie")
     private Categorie categorie;

@@ -3,7 +3,8 @@ package org.money.revenuemicroservice.dtos;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
-import lombok.Value;
+
+import lombok.Data;
 import org.money.revenuemicroservice.entities.Type;
 
 import java.io.Serializable;
@@ -12,7 +13,7 @@ import java.time.LocalDate;
 /**
  * DTO for {@link org.money.revenuemicroservice.entities.Revenue}
  */
-@Value
+@Data
 public class RevenueDto implements Serializable {
     @NotNull
     Long idRevenue;

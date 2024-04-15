@@ -13,6 +13,11 @@ spring:
     show-sql: true
 server:
   port: 4045
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui-custom.html
 eureka:
   client:
     service-url:

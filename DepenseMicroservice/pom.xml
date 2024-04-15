@@ -65,11 +65,6 @@
             <artifactId>mapstruct</artifactId>
             <version>${org.mapstruct.version}</version>
         </dependency>
-        <dependency>
-            <groupId>io.github.wimdeblauwe</groupId>
-            <artifactId>error-handling-spring-boot-starter</artifactId>
-            <version>4.2.0</version>
-        </dependency>
         <!-- Lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -99,11 +94,26 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
+
         <dependency>
-            <groupId>org.money</groupId>
-            <artifactId>FeignClient</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

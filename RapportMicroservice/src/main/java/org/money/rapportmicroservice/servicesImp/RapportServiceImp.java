@@ -2,8 +2,10 @@ package org.money.rapportmicroservice.servicesImp;
 
 import lombok.RequiredArgsConstructor;
 import org.money.depensemicroservice.exceptions.CustomException;
-import org.money.feignclient.Depense.DepenseClient;
-import org.money.feignclient.Revenue.RevenueClient;
+
+
+import org.money.rapportmicroservice.Depense.DepenseClient;
+import org.money.rapportmicroservice.Revenue.RevenueClient;
 import org.money.rapportmicroservice.dtos.RapportDto;
 import org.money.rapportmicroservice.dtos.StatistiqueDto;
 import org.money.rapportmicroservice.entities.Rapport;
@@ -15,7 +17,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -30,10 +31,8 @@ public class RapportServiceImp implements RapportService {
     private  final RapportMapper rapportMapper;
     private static final Logger LOGGER = LoggerFactory.getLogger(RapportServiceImp.class);
 
-   //private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
-
-    @Scheduled(cron = "0 18 02 10 4 ?")
+    @Scheduled(cron = "0 52 17 14 4 ?")
     public void generateRapports() {
         Double depenses = depenseClient.totalDepensesParMois();
         Double revenus = revenueClient.totalRevenuesParMois();

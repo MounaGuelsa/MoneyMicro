@@ -101,7 +101,7 @@ public class FactureServiceImp implements FactureService {
         Storage storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
         storage.create(blobInfo, Files.readAllBytes(file.toPath()));
 
-        String DOWNLOAD_URL = "https://firebasestorage.googleapis.com/v0/b/<facture-e8737.appspot.com>/o/%s?alt=media";
+        String DOWNLOAD_URL = "https://firebasestorage.googleapis.com/v0/b/facture-e8737.appspot.com/o/%s?alt=media";
         return String.format(DOWNLOAD_URL, URLEncoder.encode(fileName, StandardCharsets.UTF_8));
     }
 @Override

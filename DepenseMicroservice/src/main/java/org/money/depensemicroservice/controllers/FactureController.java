@@ -54,7 +54,9 @@ public class FactureController {
     }
     @PostMapping
     public ResponseEntity<FactureDto> upload (@RequestParam ( "multipartFile" ) MultipartFile multipartFile , @RequestParam("nomFacture") String nomFacture) {
-        FactureDto factureDto = FactureDto.createFactureDto(null, nomFacture,  null);
+        FactureDto factureDto = FactureDto.builder()
+                .nomFacture(nomFacture)
+                .build();
         FactureDto facture= factureService.importerFacture(multipartFile, factureDto);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(facture);

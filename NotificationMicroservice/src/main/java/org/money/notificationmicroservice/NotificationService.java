@@ -1,6 +1,7 @@
 package org.money.notificationmicroservice;
 
 
+import org.springframework.scheduling.annotation.Scheduled;
 
 public interface NotificationService {
 
@@ -8,4 +9,7 @@ public interface NotificationService {
 
 
     void envoyerNotification(Notification notification);
+
+    @Scheduled(cron = "0 0 20 * * ?")
+    void envoyerNotificationQuotidienne();
 }

@@ -17,7 +17,9 @@ public class Utilisateur {
     private Long id_Utilisateur;
     private String nom;
     private String prenom;
+    private String nomUtilisateur;
     private String email;
     private String password;
     private Role role;
+    private String idKeycloak;
 }

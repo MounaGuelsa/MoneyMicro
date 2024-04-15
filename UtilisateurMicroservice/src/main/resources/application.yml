@@ -3,3 +3,15 @@ spring:
     name: Utilisateur
   config:
     import: configserver:http://localhost:3000/
+
+# This is for keycloak configuration
+keycloak:
+  realm: money
+  server-url: http://localhost:8080
+  resource: money-app
+  credentials:
+    secret: 6e416OGLFQBheEAFeLtXI8Ap7wEsXEfA
+  # This is for the roles that we have in the keycloak
+  roles:
+    user: USER
+    admin: ADMIN

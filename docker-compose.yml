@@ -27,12 +27,85 @@ services:
     command:
       - start-dev
     depends_on:
-      - postgres
+      - db
+  depense-db:
+    container_name: depense
+    image: postgres:16
+    environment:
+      POSTGRES_USER: depense
+      POSTGRES_PASSWORD: depense
+      PGDATA: /data/postgres
+    volumes:
+      - depense-db:/data/postgres
+    ports:
+      - "5228:5432"
     networks:
       - db
+    restart: unless-stopped
+  revenue-db:
+    container_name: revenue
+    image: postgres:16
+    environment:
+      POSTGRES_USER: revenue
+      POSTGRES_PASSWORD: revenue
+      PGDATA: /data/postgres
+    volumes:
+      - revenue-db:/data/postgres
+    ports:
+      - "5228:5432"
+    networks:
+      - db
+    restart: unless-stopped
+  rapport-db:
+    container_name: rapport
+    image: postgres:16
+    environment:
+      POSTGRES_USER: rapport
+      POSTGRES_PASSWORD: rapport
+      PGDATA: /data/postgres
+    volumes:
+      - rapport-db:/data/postgres
+    ports:
+      - "5228:5432"
+    networks:
+      - db
+    restart: unless-stopped
+  notification-db:
+    container_name: notification
+    image: postgres:16
+    environment:
+      POSTGRES_USER: notification
+      POSTGRES_PASSWORD: notification
+      PGDATA: /data/postgres
+    volumes:
+      - depense-db:/data/postgres
+    ports:
+      - "5228:5432"
+    networks:
+      - db
+    restart: unless-stopped
+  utilisateur-db:
+    container_name: utilisateur
+    image: postgres:16
+    environment:
+      POSTGRES_USER: utilisateur
+      POSTGRES_PASSWORD: utilisateur
+      PGDATA: /data/postgres
+    volumes:
+      - utilisateur-db:/data/postgres
+    ports:
+      - "5228:5432"
+    networks:
+      - db
+    restart: unless-stopped
 networks:
   db:
     driver: bridge
 
 volumes:
   postgres_data:
+  depense-db:
+  revenue-db:
+  rapport-db:
+  notification-db:
+  utilisateur-db:

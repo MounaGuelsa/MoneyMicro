@@ -2,7 +2,7 @@ package org.money.revenuemicroservice.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
@@ -11,6 +11,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Builder
 public class Revenue {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

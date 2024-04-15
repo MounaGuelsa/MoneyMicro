@@ -1,11 +1,11 @@
 
-“	java:S117h"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ù’ÕÔ8½„­Ûê1J$d880a686-57c0-40a4-86c3-6d49ec759ca4
-™	java:S117€"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾åã×øÿÿÿÿ8Ã„­Ûê1J$52f7e046-9402-4b58-90f9-2e06b9459af0
-¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Øìõ±øÿÿÿÿ8ç„­Ûê1J$44c87551-05ef-446d-9191-f7201fead7ea
+“	java:S117h"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©Àá˜8½„­Ûê1J$0214d1f7-02c4-4bc0-a1cf-cfa32c256f20
+™	java:S117€"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾åã×øÿÿÿÿ8Ã„­Ûê1J$2b096df9-ac24-4f59-aa1d-4f62bf79ee33
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Øìõ±øÿÿÿÿ8ç„­Ûê1J$b1a465d5-0f49-495a-b835-25a6757d5d10
 •
-java:S6204/"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8œˆ­Ûê1J$bd473275-70a6-43bb-99fa-295d6050c200
+java:S6204/"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8ó„’Âí1J$53d1ff3a-84e2-4f59-bf91-656a4f214d50
 ª
-java:S4087p"bRemove this "close" call; closing the resource is handled automatically by the try-with-resources.(æŒÕ®ùÿÿÿÿ8íˆ­Ûê1J$94a9c85e-477e-43ad-89d4-ab4a36424868
-ƒ	java:S899‡";Do something with the "boolean" value returned by "delete".(²Œ­ûÿÿÿÿ8Š‰­Ûê1J$12444047-5f94-4c9a-bb89-cec1f1df5108
+java:S4087p"bRemove this "close" call; closing the resource is handled automatically by the try-with-resources.(æŒÕ®ùÿÿÿÿ8íˆ­Ûê1J$d275a692-6dbe-4df8-95a3-abc5c588f55b
+ƒ	java:S899‡";Do something with the "boolean" value returned by "delete".(²Œ­ûÿÿÿÿ8Š‰­Ûê1J$879945fc-c57f-4e93-9689-1920b9c9dd55
 —
-java:S4042‡"NUse "java.nio.file.Files#delete" here for better messages on error conditions.(²Œ­ûÿÿÿÿ8“‰­Ûê1J$dc6ab19f-c49f-48f7-940b-c6857b76bf18
+java:S4042‡"NUse "java.nio.file.Files#delete" here for better messages on error conditions.(²Œ­ûÿÿÿÿ8“‰­Ûê1J$b095d190-06bc-4936-9cd6-8b1dfdab0992

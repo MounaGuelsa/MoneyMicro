@@ -1,0 +1,8 @@
+
+•	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿Š£‚şÿÿÿÿ8Î¤ú¿í1J$2e5a21c2-1dc2-4b79-8474-72a692f2c224
+‰
+java:S1128"ARemove this unused import 'org.springframework.data.domain.Page'.(˜âüÿÿÿÿ8Ï¤ú¿í1J$735bbc2a-5b3f-4dd0-87f5-a40a9edfe981
+
+java:S1128"ERemove this unused import 'org.springframework.data.domain.Pageable'.(‡ë‚Öıÿÿÿÿ8Ğ¤ú¿í1J$17e07e1a-359f-4cad-b053-5a2c229fa059
+s
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8Ğ¤ú¿í1J$f4bab760-c4f7-41cb-8378-b15c8e1c176f

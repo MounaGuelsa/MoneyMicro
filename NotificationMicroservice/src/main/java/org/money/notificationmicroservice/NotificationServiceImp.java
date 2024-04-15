@@ -5,14 +5,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -50,5 +48,14 @@ public class NotificationServiceImp implements  NotificationService{
 
         notificationsRef.child(key).setValueAsync(notificationData);
         LOGGER.info("Notification sent successfully");
+    }
+    @Scheduled(cron = "0 0 20 * * ?")
+    @Override
+    public void envoyerNotificationQuotidienne() {
+        Notification notification = new Notification();
+        notification.setContenuNotif("N'oubliez pas d'ajouter vos dépenses du jour !");
+
+        envoyerNotification(notification);
+        LOGGER.info("Notification quotidienne envoyée à 20:00h");
     }
 }

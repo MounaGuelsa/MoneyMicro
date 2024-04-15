@@ -19,7 +19,8 @@ public class SecurityConfig {
     @Bean
     public SecurityWebFilterChain springSecurituFilterChain (ServerHttpSecurity serverHttpSecurity) {
         serverHttpSecurity.authorizeExchange(exchanges -> exchanges
-                        .anyExchange().authenticated())
+                // TODO: add the permissions for the endpoints login, logout, and the public endpoints
+                        .anyExchange().permitAll())
                 .oauth2ResourceServer(oAuth2ResourceServerSpec -> oAuth2ResourceServerSpec
                         .jwt(jwtSpec -> jwtSpec.jwtAuthenticationConverter(grantedAuthoritiesExtractor())));
         serverHttpSecurity.csrf(csrfSpec -> csrfSpec.disable());
@@ -32,6 +33,4 @@ public class SecurityConfig {
         jwtAuthenticationConverter.setJwtGrantedAuthoritiesConverter
                 (new KeycloakRoleConverter());
         return new ReactiveJwtAuthenticationConverterAdapter(jwtAuthenticationConverter);}
-
-
 }

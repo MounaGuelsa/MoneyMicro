@@ -3,6 +3,7 @@ package org.money.depensemicroservice.dtos;
 import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
+import lombok.Data;
 import lombok.Value;
 import org.money.depensemicroservice.entities.Depense;
 import org.money.depensemicroservice.entities.MoyennePaiement;
@@ -13,7 +14,7 @@ import java.time.LocalDate;
 /**
  * DTO for {@link Depense}
  */
-@Value
+@Data
 public class DepenseDto implements Serializable {
     @NotNull
     Long idDepense;
