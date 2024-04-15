@@ -1,15 +1,17 @@
-pipeline{
-  agent any
-tools {
+pipeline {
+    agent any
+    tools {
         maven "Maven"
-        jdk  "Javahome"
+        jdk "Javahome"
     }
   
-  stage('Build Project') {
+    stages {
+        stage('Build Project') {
             steps {
                 script {
-                    sh 'mvn clean install '
+                    sh 'mvn clean install'
                 }
             }
         }
+    }
 }
