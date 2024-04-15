@@ -1,0 +1,36 @@
+pipeline{
+  agent any
+tools {
+        maven "Maven"
+    }
+
+  stages{
+        stage('Build'){
+            steps{
+                bat "mvn -f 'MoneyMicro/GatewayService/pom.xml' -DskipTests  clean install"
+                bat "mvn -f 'MoneyMicro/DiscoveryServer/pom.xml' -DskipTests  clean install"
+                bat "mvn -f 'MoneyMicro/DepenseMicroservice/pom.xml' -DskipTests  clean install"
+                bat "mvn -f 'MoneyMicro/RevenueMicroservice/pom.xml' -DskipTests  clean install"
+                bat "mvn -f 'MoneyMicro/RapportMicroservice/pom.xml' -DskipTests  clean install"
+                bat "mvn -f 'MoneyMicro/UtilisateurMicroservice/pom.xml' -DskipTests  clean install"
+                bat "mvn -f 'MoneyMicro/NotificationMicroservice/pom.xml' -DskipTests  clean install"
+            }
+        }
+        stage('Test Depense'){
+              steps{
+                  bat "mvn -f 'MoneyMicro/DepenseMicroservice/pom.xml' test -Dtest=DepenseServiceImpTest"
+                  bat "mvn -f 'MoneyMicro/DepenseMicroservice/pom.xml' test -Dtest=CategorieServiceImpTest"
+              }
+        }
+        stage('Test Revenue'){
+                      steps{
+                          bat "mvn -f 'MoneyMicro/RevenueMicroservice/pom.xml' test -Dtest=RevenueServiceImpTest"
+                      }
+        }
+        stage('Test Rapport'){
+                      steps{
+                          bat "mvn -f 'MoneyMicro/RapportMicroservice/pom.xml' test -Dtest=RapportServiceImpTest"
+                      }
+        }
+  }
+}
