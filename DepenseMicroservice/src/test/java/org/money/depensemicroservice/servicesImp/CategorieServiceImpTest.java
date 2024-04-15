@@ -46,7 +46,7 @@ import static org.mockito.Mockito.*;
         categorieDto.setNom("Test");
         categorieDto.setIcone("Icon");
         when(categorieRepository.findById(id)).thenReturn(Optional.of(categorie));
-        when(categorieMapper.toDTO(null)).thenReturn(categorieDto); // Corrected stubbing
+        when(categorieMapper.toDTO(null)).thenReturn(categorieDto);
 
         // When
         CategorieDto result = categorieService.modifierCategorie(id, categorieDto);

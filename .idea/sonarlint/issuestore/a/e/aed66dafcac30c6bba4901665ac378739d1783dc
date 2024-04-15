@@ -1,13 +1,4 @@
 
-Á
-java:S1598"øThis file "ProjetServiceImp.java" should be located in "org\money\projetmicroservice\services\impl" directory, not in "C:\SpringProject\SimplonFormation\filRouge\MoneyMicro\ProjetMicroservice\src\main\java\org\money\projetmicroservice\servicesImp".(Úàã›øÿÿÿÿ8“· ùé1J$38d79d1e-c06f-4c44-bf4c-de0af1a4bbc0
-ƒ	java:S125"<This block of commented-out lines of code should be removed.(°ñÜÚúÿÿÿÿ8ÓÆþ›ê1J$734aa69f-eec2-40e5-860f-c4a0c2280c15
-b
-java:S1128"ERemove this unused import 'org.money.feignclient.Depense.DepenseDto'.(­ØÄ¨8¬°“ïì1
-b
-java:S1128
-"@Remove this unused import 'org.springframework.http.HttpStatus'.(íŸ¤Šúÿÿÿÿ8­°“ïì1
-f
-java:S1128"DRemove this unused import 'org.springframework.http.ResponseEntity'.(¶¯ø¦úÿÿÿÿ8­°“ïì1
-M
-java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8­°“ïì1
+]
+java:S1220""Move this file to a named package.8Ä¬Æî1J$0b6e4737-cccf-42ee-ae6b-eda6c12105e0
+ƒ	java:S125"<This block of commented-out lines of code should be removed.(Ð‚ëËÿÿÿÿÿ8Æ¬Æî1J$28ddb95c-49d4-4eb5-af50-ffda6ddb804e
